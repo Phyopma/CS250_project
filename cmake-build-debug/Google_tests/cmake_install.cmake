@@ -1,4 +1,4 @@
-# Install script for directory: /Users/phyopyae/Desktop/CS250_project/Google_tests
+# Install script for directory: /Users/phyopyae/CLionProjects/CS250_project/Google_tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/phyopyae/Desktop/CS250_project/cmake-build-debug/Google_tests/lib/cmake_install.cmake")
+  include("/Users/phyopyae/CLionProjects/CS250_project/cmake-build-debug/Google_tests/lib/cmake_install.cmake")
 endif()
 
