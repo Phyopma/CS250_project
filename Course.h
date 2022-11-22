@@ -18,11 +18,7 @@ public:
 
 // overload constructor
     Course(int otherCourseNumber, const std::string &otherCourseName,
-           int otherCourseUnits, std::set<int> &otherPrereqs) :
-            courseNumber(otherCourseNumber),
-            courseName(otherCourseName),
-            courseUnits(otherCourseUnits),
-            prereqs(otherPrereqs) {}
+           int otherCourseUnits, std::set<int> &otherPrereqs);
 
 // Accessor functions
     const std::string& getCourseName() const;
@@ -33,7 +29,7 @@ public:
 
     const std::set<int>& getCoursePrereqs() const ;
 
-    const Course &getCourse();
+    const Course &getCourse() const;
 
     static std::string getPrefix();
 
@@ -47,7 +43,7 @@ public:
     void setPrereqs(int[], int);
 
 // Destructor
-    ~Course();
+    ~Course() = default;
 
 private:
     int courseNumber;
