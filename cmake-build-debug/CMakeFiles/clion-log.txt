@@ -1,4 +1,12 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/phyopyae/CLionProjects/CS250_project -B /Users/phyopyae/CLionProjects/CS250_project/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/phyopyae/CLionProjects/CS250_project/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/phyopyae/Desktop/CS250_project -B /Users/phyopyae/Desktop/CS250_project/cmake-build-debug
+CMake Error at Google_tests/CMakeLists.txt:2 (add_subdirectory):
+  The source directory
+
+    /Users/phyopyae/Desktop/CS250_project/Google_tests/lib
+
+  does not contain a CMakeLists.txt file.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/phyopyae/Desktop/CS250_project/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/phyopyae/Desktop/CS250_project/cmake-build-debug/CMakeFiles/CMakeError.log".
