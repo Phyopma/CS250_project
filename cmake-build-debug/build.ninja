@@ -58,6 +58,12 @@ build CMakeFiles/CS250_project.dir/Course.cpp.o: CXX_COMPILER__CS250_project_Deb
   OBJECT_DIR = CMakeFiles/CS250_project.dir
   OBJECT_FILE_DIR = CMakeFiles/CS250_project.dir
 
+build CMakeFiles/CS250_project.dir/Test/test.cpp.o: CXX_COMPILER__CS250_project_Debug /Users/phyopyae/CLionProjects/CS250_project/Test/test.cpp || cmake_object_order_depends_target_CS250_project
+  DEP_FILE = CMakeFiles/CS250_project.dir/Test/test.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  OBJECT_DIR = CMakeFiles/CS250_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/CS250_project.dir/Test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CS250_project
@@ -66,7 +72,7 @@ build CMakeFiles/CS250_project.dir/Course.cpp.o: CXX_COMPILER__CS250_project_Deb
 #############################################
 # Link the executable CS250_project
 
-build CS250_project: CXX_EXECUTABLE_LINKER__CS250_project_Debug CMakeFiles/CS250_project.dir/Main.cpp.o CMakeFiles/CS250_project.dir/Course.cpp.o
+build CS250_project: CXX_EXECUTABLE_LINKER__CS250_project_Debug CMakeFiles/CS250_project.dir/Main.cpp.o CMakeFiles/CS250_project.dir/Course.cpp.o CMakeFiles/CS250_project.dir/Test/test.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
   OBJECT_DIR = CMakeFiles/CS250_project.dir
   POST_BUILD = :

@@ -25,15 +25,15 @@ public:
             prereqs(otherPrereqs) {}
 
 // Accessor functions
-    std::string &getCourseName() const;
+    const std::string& getCourseName() const;
 
     int getCourseNumber() const;
 
     int getCourseUnits() const;
 
-    std::set<int> &getCoursePrereqs() const;
+    const std::set<int>& getCoursePrereqs() const ;
 
-    Course &getCourse() const;
+    const Course &getCourse();
 
     static std::string getPrefix();
 
