@@ -18,7 +18,7 @@ TEST_CASE("constructor test"){
     CHECK_EQ(c.getCoursePrereqs().size(), 2);
     CHECK_EQ(c.getCourseNumber(), 5);
     CHECK_EQ(c.getCourseName(), "CS250");
-    CHECK_EQ(c.getCourseUnits(), 4);
+    CHECK_EQ(c.getCourseUnits(), 3);
     CHECK_EQ(c.getCoursePrereqs(), s);
 }
 
