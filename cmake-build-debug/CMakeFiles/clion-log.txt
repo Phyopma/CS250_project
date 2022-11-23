@@ -1,9 +1,27 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/phyopyae/CLionProjects/CS250_project -B /Users/phyopyae/CLionProjects/CS250_project/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/YuYuHlaing/Desktop/OCC/CS250_project -B /Users/YuYuHlaing/Desktop/OCC/CS250_project/cmake-build-debug
+-- The C compiler identification is AppleClang 14.0.0.14000029
+-- The CXX compiler identification is AppleClang 14.0.0.14000029
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Python: /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9 (found version "3.9.6") found components: Interpreter 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
 CMake Error at Google_tests/CMakeLists.txt:7 (target_link_libraries):
   Cannot specify link libraries for target "Google_Tests_run" which is not
   built by this project.
 
 
 -- Configuring incomplete, errors occurred!
-See also "/Users/phyopyae/CLionProjects/CS250_project/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "/Users/phyopyae/CLionProjects/CS250_project/cmake-build-debug/CMakeFiles/CMakeError.log".
+See also "/Users/YuYuHlaing/Desktop/OCC/CS250_project/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/YuYuHlaing/Desktop/OCC/CS250_project/cmake-build-debug/CMakeFiles/CMakeError.log".
