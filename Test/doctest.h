@@ -633,45 +633,54 @@ public:
     String substr(size_type pos, size_type cnt = npos) const &;
 
     size_type find(char ch, size_type pos = 0) const;
+
     size_type rfind(char ch, size_type pos = npos) const;
 
-    int compare(const char* other, bool no_case = false) const;
-    int compare(const String& other, bool no_case = false) const;
+    int compare(const char *other, bool no_case = false) const;
 
-friend DOCTEST_INTERFACE std::ostream& operator<<(std::ostream& s, const String& in);
+    int compare(const String &other, bool no_case = false) const;
+
+    friend DOCTEST_INTERFACE std::ostream &operator<<(std::ostream &s, const String &in);
 };
 
-DOCTEST_INTERFACE String operator+(const String& lhs, const String& rhs);
+    DOCTEST_INTERFACE String operator+(const String &lhs, const String &rhs);
 
-DOCTEST_INTERFACE bool operator==(Course lhs, const String& rhs);
-DOCTEST_INTERFACE bool operator!=(const String& lhs, const String& rhs);
-DOCTEST_INTERFACE bool operator<(const String& lhs, const String& rhs);
-DOCTEST_INTERFACE bool operator>(const String& lhs, const String& rhs);
-DOCTEST_INTERFACE bool operator<=(const String& lhs, const String& rhs);
-DOCTEST_INTERFACE bool operator>=(const String& lhs, const String& rhs);
+    DOCTEST_INTERFACE bool operator==(const String &lhs, const String &rhs);
 
-class DOCTEST_INTERFACE Contains {
-public:
-    explicit Contains(const String& string);
+    DOCTEST_INTERFACE bool operator!=(const String &lhs, const String &rhs);
 
-    bool checkWith(const String& other) const;
+    DOCTEST_INTERFACE bool operator<(const String &lhs, const String &rhs);
 
-    String string;
-};
+    DOCTEST_INTERFACE bool operator>(const String &lhs, const String &rhs);
 
-DOCTEST_INTERFACE String toString(const Contains& in);
+    DOCTEST_INTERFACE bool operator<=(const String &lhs, const String &rhs);
 
-DOCTEST_INTERFACE bool operator==(Course lhs, const Contains& rhs);
-DOCTEST_INTERFACE bool operator==(const Contains& lhs, const String& rhs);
-DOCTEST_INTERFACE bool operator!=(const String& lhs, const Contains& rhs);
-DOCTEST_INTERFACE bool operator!=(const Contains& lhs, const String& rhs);
+    DOCTEST_INTERFACE bool operator>=(const String &lhs, const String &rhs);
 
-namespace Color {
-    enum Enum
-    {
-        None = 0,
-        White,
-        Red,
+    class DOCTEST_INTERFACE Contains {
+    public:
+        explicit Contains(const String &string);
+
+        bool checkWith(const String &other) const;
+
+        String string;
+    };
+
+    DOCTEST_INTERFACE String toString(const Contains &in);
+
+    DOCTEST_INTERFACE bool operator==(const String &lhs, const Contains &rhs);
+
+    DOCTEST_INTERFACE bool operator==(const Contains &lhs, const String &rhs);
+
+    DOCTEST_INTERFACE bool operator!=(const String &lhs, const Contains &rhs);
+
+    DOCTEST_INTERFACE bool operator!=(const Contains &lhs, const String &rhs);
+
+    namespace Color {
+        enum Enum {
+            None = 0,
+            White,
+            Red,
         Green,
         Blue,
         Cyan,
@@ -3761,8 +3770,9 @@ String toString(const Contains& in) {
     return "Contains( " + in.string + " )";
 }
 
-bool operator==(Course lhs, const Contains& rhs) { return rhs.checkWith(lhs); }
-bool operator==(const Contains& lhs, const String& rhs) { return lhs.checkWith(rhs); }
+    bool operator==(const String &lhs, const Contains &rhs) { return rhs.checkWith(lhs); }
+
+    bool operator==(const Contains &lhs, const String &rhs) { return lhs.checkWith(rhs); }
 bool operator!=(const String& lhs, const Contains& rhs) { return !rhs.checkWith(lhs); }
 bool operator!=(const Contains& lhs, const String& rhs) { return !lhs.checkWith(rhs); }
 

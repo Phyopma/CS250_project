@@ -49,8 +49,8 @@ TEST_CASE("getCoursePrereqs test") {
 TEST_CASE("getCourse test") {
     set<int> s = {1, 2};
     Course c(250, "C++ Programming 2", 3, s);
-    Course c1 = c.getCourse();
-    CHECK_EQ(&c1, &c);
+    CHECK_EQ(&c, &(c.getCourse()));
+
 }
 
 TEST_CASE("getPrefix test") {
@@ -75,10 +75,10 @@ TEST_CASE("setCourseUnits test") {
     CHECK_EQ(c.getCourseUnits(), 4);
 }
 
-//TEST_CASE("setCoursePrereqs test") {
-//    int array[] = {170, 150, 250};
-//    set<int> s = {170, 150, 250};
-//    Course c;
-//    c.setPrereqs(array, 3);
-//    CHECK_EQ(c.getCoursePrereqs(), s);
-//}
+TEST_CASE("setCoursePrereqs test") {
+    int array[] = {170, 150, 250};
+    set<int> s = {170, 150, 250};
+    Course c;
+    c.setPrereqs(array, 3);
+    CHECK_EQ(c.getCoursePrereqs(), s);
+}
