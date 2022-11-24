@@ -530,6 +530,8 @@ DOCTEST_MSVC_SUPPRESS_WARNING_POP
 
 #ifdef DOCTEST_CONFIG_INCLUDE_TYPE_TRAITS
 #include <type_traits>
+#include "../Course.h"
+
 #endif // DOCTEST_CONFIG_INCLUDE_TYPE_TRAITS
 
 namespace doctest {
@@ -641,7 +643,7 @@ friend DOCTEST_INTERFACE std::ostream& operator<<(std::ostream& s, const String&
 
 DOCTEST_INTERFACE String operator+(const String& lhs, const String& rhs);
 
-DOCTEST_INTERFACE bool operator==(const String& lhs, const String& rhs);
+DOCTEST_INTERFACE bool operator==(Course lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator!=(const String& lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator<(const String& lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator>(const String& lhs, const String& rhs);
@@ -659,7 +661,7 @@ public:
 
 DOCTEST_INTERFACE String toString(const Contains& in);
 
-DOCTEST_INTERFACE bool operator==(const String& lhs, const Contains& rhs);
+DOCTEST_INTERFACE bool operator==(Course lhs, const Contains& rhs);
 DOCTEST_INTERFACE bool operator==(const Contains& lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator!=(const String& lhs, const Contains& rhs);
 DOCTEST_INTERFACE bool operator!=(const Contains& lhs, const String& rhs);
@@ -3759,7 +3761,7 @@ String toString(const Contains& in) {
     return "Contains( " + in.string + " )";
 }
 
-bool operator==(const String& lhs, const Contains& rhs) { return rhs.checkWith(lhs); }
+bool operator==(Course lhs, const Contains& rhs) { return rhs.checkWith(lhs); }
 bool operator==(const Contains& lhs, const String& rhs) { return lhs.checkWith(rhs); }
 bool operator!=(const String& lhs, const Contains& rhs) { return !rhs.checkWith(lhs); }
 bool operator!=(const Contains& lhs, const String& rhs) { return !lhs.checkWith(rhs); }
