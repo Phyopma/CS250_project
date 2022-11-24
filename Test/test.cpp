@@ -12,7 +12,7 @@ TEST_CASE("default constructor test") {
 }
 
 //
-TEST_CASE("constructor and getter test") {
+TEST_CASE("constructor") {
     set<int> s = {1, 2};
     Course c(250, "C++ Programming 2", 3, s);
     CHECK_EQ(c.getCoursePrereqs().size(), 2);
@@ -52,7 +52,8 @@ TEST_CASE("setPreReqs test") {
         REQUIRE_GT(c.getCoursePrereqs().size(), 3);
         CHECK_EQ(c.getCoursePrereqs(), s1);
     }
-
 }
+
+
 
 
