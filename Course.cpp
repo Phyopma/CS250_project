@@ -1,6 +1,14 @@
 /*
-(name header)
+    Team name
+
+    Aung, Phyo Pyae Moe
+    Hlaing, Yu Yu
+
+    Fall 2022
+    CS A250 - C++ 2
+    Project: CS Courses
 */
+
 #include "Course.h"
 #include <iostream>
 #include <iomanip>
@@ -30,12 +38,12 @@ int Course::getCourseUnits() const {
 }
 
 // Definition function getPrereqs
-const set<int>& Course::getCoursePrereqs() const  {
+const set<int>& Course::getCoursePrereqs() const {
     return prereqs;
 }
 
 // Definition function getCourse
-const Course &Course::getCourse() const  {
+const Course &Course::getCourse() const {
     return *this;
 }
 
@@ -45,7 +53,7 @@ std::string Course::getPrefix() {
 }
 
 // Definition function setCourseName
-void Course::setCourseName(string &newCourseName) {
+void Course::setCourseName(const string& newCourseName) {
     courseName = newCourseName;
 }
 
@@ -60,7 +68,7 @@ void Course::setCourseUnits(int newCourseUnits) {
 }
 
 // Definition function setPrereqs
-void Course::setPrereqs(int *prereqsArray, int length) {
+void Course::setPrereqs(int prereqsArray[], int length) {
     for (int i = 0; i < length; ++i) {
         prereqs.insert(prereqsArray[i]);
     }

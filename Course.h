@@ -1,6 +1,14 @@
 /*
-(name header)
+    Team name
+
+    Aung, Phyo Pyae Moe
+    Hlaing, Yu Yu
+
+    Fall 2022
+    CS A250 - C++ 2
+    Project: CS Courses
 */
+
 #ifndef COURSE_H
 #define COURSE_H
 
@@ -17,8 +25,8 @@ public:
                courseUnits(0) {}
 
 // overload constructor
-    Course(int otherCourseNumber, const std::string &otherCourseName,
-           int otherCourseUnits, std::set<int> &otherPrereqs);
+    Course(int otherCourseNumber, const std::string& otherCourseName,
+           int otherCourseUnits, std::set<int>& otherPrereqs);
 
 // Accessor functions
     const std::string& getCourseName() const;
@@ -27,14 +35,14 @@ public:
 
     int getCourseUnits() const;
 
-    const std::set<int>& getCoursePrereqs() const ;
+    const std::set<int>& getCoursePrereqs() const;
 
-    const Course &getCourse() const;
+    const Course& getCourse() const;
 
     static std::string getPrefix();
 
 // Mutator functions
-    void setCourseName(std::string &);
+    void setCourseName(const std::string&);
 
     void setCourseNumber(int);
 
