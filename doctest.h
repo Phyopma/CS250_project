@@ -530,7 +530,7 @@ DOCTEST_MSVC_SUPPRESS_WARNING_POP
 
 #ifdef DOCTEST_CONFIG_INCLUDE_TYPE_TRAITS
 #include <type_traits>
-#include "../Course.h"
+#include "Course.h"
 
 #endif // DOCTEST_CONFIG_INCLUDE_TYPE_TRAITS
 
