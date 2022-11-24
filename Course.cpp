@@ -45,23 +45,25 @@ std::string Course::getPrefix() {
 }
 
 // Definition function setCourseName
-void Course::setCourseName(string &) {
-
+void Course::setCourseName(string &newCourseName) {
+    courseName = newCourseName;
 }
 
 // Definition function setCourseNumber
-void Course::setCourseNumber(int) {
-
+void Course::setCourseNumber(int newCourseNumber) {
+    courseNumber = newCourseNumber;
 }
 
 // Definition function setCourseUnits
-void Course::setCourseUnits(int) {
-
+void Course::setCourseUnits(int newCourseUnits) {
+    courseUnits = newCourseUnits;
 }
 
 // Definition function setPrereqs
-void Course::setPrereqs(int *, int) {
-
+void Course::setPrereqs(int *prereqsArray, int length) {
+    for (int i = 0; i < length; ++i) {
+        prereqs.insert(prereqsArray[i]);
+    }
 }
 
 
