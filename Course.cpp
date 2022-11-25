@@ -1,5 +1,5 @@
 /*
-    Team name
+    Coffee Addicts
 
     Aung, Phyo Pyae Moe
     Hlaing, Yu Yu
@@ -16,7 +16,7 @@ using namespace std;
 const string Course::PREFIX = "CS A";
 
 // Definition overloaded constructor
-Course::Course(int otherCourseNumber, const string &otherCourseName, int otherCourseUnits, set<int> &otherPrereqs) :
+Course::Course(int otherCourseNumber, const string& otherCourseName, int otherCourseUnits, set<int> &otherPrereqs) :
         courseNumber(otherCourseNumber),
         courseName(otherCourseName),
         courseUnits(otherCourseUnits),

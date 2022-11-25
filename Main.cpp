@@ -1,5 +1,5 @@
 /*
-    Team name
+    Coffee Addicts
 
     Aung, Phyo Pyae Moe
     Hlaing, Yu Yu
