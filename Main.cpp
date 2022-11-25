@@ -9,62 +9,151 @@
     Project: CS Courses
 */
 
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-
-#include "doctest.h"
 #include "Course.h"
+#include <iostream>
 
 using namespace std;
 
-TEST_CASE("default constructor test") {
-    Course c;
-    CHECK_EQ(c.getCourseNumber(), 0);
-    CHECK_EQ(c.getCoursePrereqs().size(), 0);
-    CHECK_EQ(c.getCourseName(), "N/A");
-    CHECK_EQ(c.getCoursePrereqs().size(), 0);
-}
+int main()
+{
+    // Default Constructor
+    Course course1;
 
-//
-TEST_CASE("constructor") {
-    set<int> s = {1, 2};
-    Course c(250, "C++ Programming 2", 3, s);
-    CHECK_EQ(c.getCoursePrereqs().size(), 2);
-    CHECK_EQ(c.getCourseNumber(), 250);
-    CHECK_EQ(c.getCourseName(), "C++ Programming 2");
-    CHECK_EQ(c.getCourseUnits(), 3);
-    CHECK_EQ(c.getCoursePrereqs(), s);
-    CHECK_EQ(&c, &(c.getCourse()));
-}
+    // Overloaded Constructor
+    set<int> prereqsSet = {11, 12, 13};
+    Course course2(250, "C++ Programming 2", 4, prereqsSet);
 
-TEST_CASE("static method test") {
-    CHECK_EQ(Course::getPrefix(), "CS A");
-}
+    // Get Prefix
+    cout << "==============================" << endl;
+    cout << "Prefix: " << Course::getPrefix() << endl;
+    cout << "Expected: CS A\n\n";
+    // Getter methods on course1
+    cout << "==============================" << endl;
+    cout << "Course created by default constructor\n";
 
-TEST_CASE("setter methods test") {
-    Course c;
-    c.setCourseName("Programming");
-    CHECK_EQ(c.getCourseName(), "Programming");
-    c.setCourseNumber(250);
-    CHECK_EQ(c.getCourseNumber(), 250);
-    c.setCourseUnits(4);
-    CHECK_EQ(c.getCourseUnits(), 4);
-}
+    cout << "Course Number: " << course1.getCourseNumber() << endl;
+    cout << "Expected: 0\n\n";
 
-TEST_CASE("setPreReqs test") {
-    Course c;
-    SUBCASE("Empty set") {
-        int array[] = {170, 150, 250};
-        set<int> s = {170, 150, 250};
-        c.setPrereqs(array, 3);
-        CHECK_EQ(c.getCoursePrereqs(), s);
+    cout << "Course Name: " << course1.getCourseName() << endl;
+    cout << "Expected: N/A\n\n";
+
+    cout << "Course Units: " << course1.getCourseUnits() << endl;
+    cout << "Expected: 0\n\n";
+
+    prereqsSet = course1.getCoursePrereqs();
+    cout << "Number of prerequisites: " << prereqsSet.size() << endl;
+    cout << "Expected: 0\n\n";
+
+    cout << "Prerequisites: ";
+    for(int prereq: prereqsSet)
+    {
+        cout << prereq << ", ";
     }
-    SUBCASE("Not empty set") {
-        int array1[] = {45, 12, 50, 93};
-        set<int> s1 = {45, 12, 50, 93};
-        c.setPrereqs(array1, 4);
-        REQUIRE_GT(c.getCoursePrereqs().size(), 3);
-        CHECK_EQ(c.getCoursePrereqs(), s1);
+    cout << endl;
+    cout << "Expected:\n\n";
+
+    // Getter methods on course2
+    cout << "==============================" << endl;
+    cout << "Course created by overloaded constructor\n";
+
+    cout << "Course Number: " << course2.getCourseNumber() << endl;
+    cout << "Expected: 250\n\n";
+
+    cout << "Course Name: " << course2.getCourseName() << endl;
+    cout << "Expected: C++ Programming 2\n\n";
+
+    cout << "Course Units: " << course2.getCourseUnits() << endl;
+    cout << "Expected: 4\n\n";
+
+    prereqsSet = course2.getCoursePrereqs();
+    cout << "Number of prerequisites: " << prereqsSet.size() << endl;
+    cout << "Expected: 3\n\n";
+
+    cout << "Prerequisites: ";
+    for(int prereq: prereqsSet)
+    {
+        cout << prereq << ", ";
     }
+    cout << endl;
+    cout << "Expected: 11, 12, 13\n\n";
+
+    // Get Course
+    Course course3 = course2.getCourse();
+    cout << "==============================" << endl;
+    cout << "Testing getCourse()\n";
+
+    cout << "Course Number: " << course3.getCourseNumber() << endl;
+    cout << "Expected: 250\n\n";
+
+    cout << "Course Name: " << course3.getCourseName() << endl;
+    cout << "Expected: C++ Programming 2\n\n";
+
+    cout << "Course Units: " << course3.getCourseUnits() << endl;
+    cout << "Expected: 4\n\n";
+
+    prereqsSet = course3.getCoursePrereqs();
+    cout << "Number of prerequisites: " << prereqsSet.size() << endl;
+    cout << "Expected: 3\n\n";
+
+    cout << "Prerequisites: ";
+    for(int prereq: prereqsSet)
+    {
+        cout << prereq << ", ";
+    }
+    cout << endl;
+    cout << "Expected: 11 12 13\n\n";
+
+    // Setter methods
+    cout << "==============================" << endl;
+    cout << "Testing Setter methods\n";
+
+    course1.setCourseNumber(150);
+    cout << "Course Number: " << course1.getCourseNumber() << endl;
+    cout << "Expected: 150\n\n";
+
+    course1.setCourseName("C++ Programming 1");
+    cout << "Course Name: " << course1.getCourseName() << endl;
+    cout << "Expected: C++ Programming 1\n\n";
+
+    course1.setCourseUnits(4);
+    cout << "Course Units: " << course1.getCourseUnits() << endl;
+    cout << "Expected: 4\n\n";
+
+    // Set prereqs on empty set
+    int prereqsArray[] = {170};
+    course1.setPrereqs(prereqsArray, 1);
+    prereqsSet = course1.getCoursePrereqs();
+
+    cout << "Number of prerequisites: " << prereqsSet.size() << endl;
+    cout << "Expected: 1\n\n";
+
+    cout << "Prerequisites: ";
+    for(int prereq: prereqsSet)
+    {
+        cout << prereq << ", ";
+    }
+    cout << endl;
+    cout << "Expected: 170\n\n";
+
+    // Set prereqs on non-empty set
+    int prereqsArray1[] = {170, 150};
+    course2.setPrereqs(prereqsArray1, 2);
+    prereqsSet = course2.getCoursePrereqs();
+
+    cout << "Number of prerequisites: " << prereqsSet.size() << endl;
+    cout << "Expected: 2\n\n";
+
+    cout << "Prerequisites: ";
+    for(int prereq: prereqsSet)
+    {
+        cout << prereq << ", ";
+    }
+    cout << endl;
+    cout << "Expected: 150, 170\n\n";
+
+    cout << "==============================" << endl;
+    cout << "End of testing" << endl;
+
 }
 
 
