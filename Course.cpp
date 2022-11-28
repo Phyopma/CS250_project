@@ -12,11 +12,12 @@
 #include "Course.h"
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 const string Course::PREFIX = "CS A";
 
 // Definition overloaded constructor
-Course::Course(int otherCourseNumber, const string &otherCourseName, int otherCourseUnits, const set<int> &otherPrereqs)
+Course::Course(int otherCourseNumber, const string& otherCourseName, int otherCourseUnits, const set<int>& otherPrereqs)
         :
         courseNumber(otherCourseNumber),
         courseName(otherCourseName),
@@ -24,7 +25,7 @@ Course::Course(int otherCourseNumber, const string &otherCourseName, int otherCo
         prereqs(otherPrereqs) {}
 
 // Definition function getCourseName
-const string &Course::getCourseName() const {
+const string& Course::getCourseName() const {
     return courseName;
 }
 

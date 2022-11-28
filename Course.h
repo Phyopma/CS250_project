@@ -25,8 +25,8 @@ public:
                courseUnits(0) {}
 
 // overload constructor
-    Course(int otherCourseNumber, const std::string &otherCourseName,
-           int otherCourseUnits, const std::set<int> &otherPrereqs);
+    Course(int otherCourseNumber, const std::string& otherCourseName,
+           int otherCourseUnits, const std::set<int>& otherPrereqs);
 
 // Accessor functions
     const std::string& getCourseName() const;
