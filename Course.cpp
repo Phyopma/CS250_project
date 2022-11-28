@@ -23,7 +23,7 @@ Course::Course(int otherCourseNumber, const string& otherCourseName, int otherCo
         prereqs(otherPrereqs) {}
 
 // Definition function getCourseName
-const std::string& Course::getCourseName() const {
+const string &Course::getCourseName() const {
     return courseName;
 }
 
@@ -48,7 +48,7 @@ const Course& Course::getCourse() const {
 }
 
 // Definition function getPrefix
-std::string Course::getPrefix() {
+string Course::getPrefix() {
     return Course::PREFIX;
 }
 
