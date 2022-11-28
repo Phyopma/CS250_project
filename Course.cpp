@@ -16,7 +16,8 @@ using namespace std;
 const string Course::PREFIX = "CS A";
 
 // Definition overloaded constructor
-Course::Course(int otherCourseNumber, const string& otherCourseName, int otherCourseUnits, set<int> &otherPrereqs) :
+Course::Course(int otherCourseNumber, const string &otherCourseName, int otherCourseUnits, const set<int> &otherPrereqs)
+        :
         courseNumber(otherCourseNumber),
         courseName(otherCourseName),
         courseUnits(otherCourseUnits),
@@ -68,7 +69,7 @@ void Course::setCourseUnits(int newCourseUnits) {
 }
 
 // Definition function setPrereqs
-void Course::setPrereqs(int prereqsArray[], int length) {
+void Course::setPrereqs(const int prereqsArray[], int length) {
     prereqs.clear();
     for (int i = 0; i < length; ++i) {
         prereqs.insert(prereqsArray[i]);
