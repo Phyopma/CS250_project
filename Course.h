@@ -48,7 +48,7 @@ public:
 
     void setCourseUnits(int);
 
-    void setPrereqs(const int[], int);
+    void setPrereqs(const int *, int);
 
 // Destructor
     ~Course() = default;

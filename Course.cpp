@@ -69,7 +69,7 @@ void Course::setCourseUnits(int newCourseUnits) {
 }
 
 // Definition function setPrereqs
-void Course::setPrereqs(const int prereqsArray[], int length) {
+void Course::setPrereqs(const int *prereqsArray, int length) {
     prereqs.clear();
     for (int i = 0; i < length; ++i) {
         prereqs.insert(prereqsArray[i]);

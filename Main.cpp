@@ -14,8 +14,19 @@
 
 using namespace std;
 
-int main()
-{
+template<typename T>
+void dis(const string& title, const T& actual, const T& expected) {
+    cout << title << " => " << endl;
+    cout << "\t\tActual: " << actual << endl;
+    cout << "\t\tExpected: " << expected << "\n\n";
+}
+
+void end() {
+    cout << "==============================" << endl;
+}
+
+
+int main() {
     // Default Constructor
     Course course1;
 
@@ -28,12 +39,11 @@ int main()
     cout << "Prefix: " << Course::getPrefix() << endl;
     cout << "Expected: CS A\n\n";
     // Getter methods on course1
-    cout << "==============================" << endl;
+    end();
+//    cout << "==============================" << endl;
     cout << "Course created by default constructor\n";
 
-    cout << "Course Number: " << course1.getCourseNumber() << endl;
-    cout << "Expected: 0\n\n";
-
+//     dis("Course Name",course1.getCourseName(), string("N/A"));
     cout << "Course Name: " << course1.getCourseName() << endl;
     cout << "Expected: N/A\n\n";
 
@@ -45,15 +55,15 @@ int main()
     cout << "Expected: 0\n\n";
 
     cout << "Prerequisites: ";
-    for(int prereq: prereqsSet)
-    {
+    for (int prereq: prereqsSet) {
         cout << prereq << ", ";
     }
     cout << endl;
     cout << "Expected:\n\n";
 
     // Getter methods on course2
-    cout << "==============================" << endl;
+//    cout << "==============================" << endl;
+    end();
     cout << "Course created by overloaded constructor\n";
 
     cout << "Course Number: " << course2.getCourseNumber() << endl;
@@ -70,8 +80,7 @@ int main()
     cout << "Expected: 3\n\n";
 
     cout << "Prerequisites: ";
-    for(int prereq: prereqsSet)
-    {
+    for (int prereq: prereqsSet) {
         cout << prereq << ", ";
     }
     cout << endl;
@@ -79,7 +88,8 @@ int main()
 
     // Get Course
     Course course3 = course2.getCourse();
-    cout << "==============================" << endl;
+//    cout << "==============================" << endl;
+    end();
     cout << "Testing getCourse()\n";
 
     cout << "Course Number: " << course3.getCourseNumber() << endl;
@@ -96,15 +106,15 @@ int main()
     cout << "Expected: 3\n\n";
 
     cout << "Prerequisites: ";
-    for(int prereq: prereqsSet)
-    {
+    for (int prereq: prereqsSet) {
         cout << prereq << ", ";
     }
     cout << endl;
     cout << "Expected: 11 12 13\n\n";
 
     // Setter methods
-    cout << "==============================" << endl;
+//    cout << "==============================" << endl;
+    end();
     cout << "Testing Setter methods\n";
 
     course1.setCourseNumber(150);
@@ -128,8 +138,7 @@ int main()
     cout << "Expected: 1\n\n";
 
     cout << "Prerequisites: ";
-    for(int prereq: prereqsSet)
-    {
+    for (int prereq: prereqsSet) {
         cout << prereq << ", ";
     }
     cout << endl;
@@ -144,14 +153,14 @@ int main()
     cout << "Expected: 2\n\n";
 
     cout << "Prerequisites: ";
-    for(int prereq: prereqsSet)
-    {
+    for (int prereq: prereqsSet) {
         cout << prereq << ", ";
     }
     cout << endl;
     cout << "Expected: 150, 170\n\n";
 
-    cout << "==============================" << endl;
+//    cout << "==============================" << endl;
+    end();
     cout << "End of testing" << endl;
 
 }
