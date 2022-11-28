@@ -26,18 +26,43 @@ void hBar() {
     cout << "==============================" << endl;
 }
 
+// Part A
 void constructorTest();
 
 void courseGetterTest();
 
 void courseSetterTest();
 
+// Part B
+void testCourseList();
+
+void testCopyConstructor();
+
+void testOpEqualEmptyObjs();
+
+void testOpEqSameLengthObjs();
+
+void testOpEqCallingLonger();
+
+void testOpEqCallingShorter();
+
 
 int main() {
-
+    // Part A
     constructorTest();
     courseGetterTest();
     courseSetterTest();
+
+    // Part B
+    testCourseList();
+    testCopyConstructor();
+    testOpEqualEmptyObjs();
+    testOpEqSameLengthObjs();
+    testOpEqCallingLonger();
+    testOpEqCallingShorter();
+
+    cout << "\n";
+    return 0;
 
 }
 

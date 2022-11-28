@@ -3,4 +3,4 @@ project(CS250_project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CS250_project Main.cpp Course.cpp Course.h)
+add_executable(CS250_project Main.cpp Course.cpp Course.h CourseList.cpp CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp TestFunctions.cpp TestCopyConstructor.cpp TestCopyAssignmentOp.cpp)
