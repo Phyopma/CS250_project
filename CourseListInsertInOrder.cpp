@@ -12,3 +12,6 @@
 #include "CourseList.h"
 // Definition function insertInOrder
 // Assume there are no duplicates.
+void CourseList::insertInOrder(Node *) {
+
+}
