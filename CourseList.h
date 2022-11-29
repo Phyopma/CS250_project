@@ -41,11 +41,31 @@ private:
 class CourseList {
 public:
 // Default constructor
+    CourseList() : count(0);
+
 // Functions addCourse
+    void addCourse(const Course&&);
+
+    void addCourse(int, const std::string&, double, const std::set<int>);
+
 // Accessor functions
+    std::string getPrefix() const;
+
+    int getNumberOfCourses() const;
+
 // Boolean functions
+    bool isEmpty() const;
+
+// Fucntion seachCourses
+    Node *searchCourse(int) const;
+
+    Node *searchCourse(int, std::string&) const;
+
 // Function deleteCourse
+    void deleteCourse(int);
+
 // Function retrieveAllCourses
+    void retrieveAllCourses(const std::string&) const;
 // Function clearList
 /********************* THE BIG THREE *********************/
 // Copy constructor
