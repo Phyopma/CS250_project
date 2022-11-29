@@ -65,12 +65,21 @@ public:
     void deleteCourse(int);
 
 // Function retrieveAllCourses
-    void retrieveAllCourses(const std::string&) const;
+    void retrieveAllCourses(std::string&) const;
+
 // Function clearList
+    void clearList();
+
 /********************* THE BIG THREE *********************/
 // Copy constructor
+    CourseList(const CourseList&);
+
 // Overloaded assignment operator
+    CourseList& operator=(const CourseList&);
+
 // Destructor
+    ~CourseList();
+
 private:
 // Function getCourseLocation
 // Function addInOrder
