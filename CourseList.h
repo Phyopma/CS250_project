@@ -82,8 +82,20 @@ public:
 
 private:
 // Function getCourseLocation
+    Node *getCourseLocation(int) const;
+
 // Function addInOrder
+    void insertInOrder(Node *);
+
 // Helper functions for overloaded assignment operator
+    void copyCallingObjIsEmpty(const CourseList&);
+
+    void copyObjectsSameLength(const CourseList&);
+
+    void copyCallingObjLonger(const CourseList&);
+
+    void copyCallingObjShorter(const CourseList&);
+
     Node *first;
     Node *last;
     int count;
