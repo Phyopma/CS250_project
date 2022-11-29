@@ -44,13 +44,29 @@ public:
 // Functions addCourse
 // Accessor functions
 // Boolean functions
+    bool isEmpty() const;
+
+    bool searchCourse(int) const;
+
 // Function deleteCourse
+    void deleteCourse(int);
+
 // Function retrieveAllCourses
+    std::string& retrieveAllCourses() const;
+
 // Function clearList
+    void clearList();
+
 /********************* THE BIG THREE *********************/
 // Copy constructor
+    CourseList(const CourseList&);
+
 // Overloaded assignment operator
+    CourseList& operator=(const CourseList&);
+
 // Destructor
+    ~CourseList();
+
 private:
 // Function getCourseLocation
 // Function addInOrder
