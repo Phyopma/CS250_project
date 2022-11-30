@@ -41,12 +41,12 @@ private:
 class CourseList {
 public:
 // Default constructor
-    CourseList() : count(0);
+    CourseList() : count(0) {}
 
 // Functions addCourse
-    void addCourse(const Course&&);
+    void addCourse(const Course&);
 
-    void addCourse(int, const std::string&, double, const std::set<int>);
+    void addCourse(int, const std::string&, int, const std::set<int>);
 
 // Accessor functions
     std::string getPrefix() const;
@@ -57,9 +57,11 @@ public:
     bool isEmpty() const;
 
 // Fucntion seachCourses
-    Node *searchCourse(int) const;
+    Node* searchCourse(int) const;
 
-    Node *searchCourse(int, std::string&) const;
+    Node* searchCourse(int, std::string&) const;
+
+    Node* searchCourse(int, Course&) const;
 
 // Function deleteCourse
     void deleteCourse(int);
