@@ -10,8 +10,26 @@
 */
 
 #include "CourseList.h"
+
 // Definition function insertInOrder
 // Assume there are no duplicates.
-void CourseList::insertInOrder(Node *) {
-
+void CourseList::insertInOrder(Node* newNode) {
+    Node* current = first;
+    Node* previous = nullptr;
+    bool isInserted = false;
+    while (current != nullptr && !isInserted) {
+        //
+        if (newNode->getCourse().getCourseNumber() <= current->getCourse().getCourseNumber()) {
+            newNode->setNext(current);
+            previous->setNext(newNode);
+        } else {
+            previous = current;
+            current = current->getNext();
+        }
+    }
+    if (!isInserted) {
+        last->setNext(newNode);
+        last = last->getNext();
+    }
+    count++;
 }
