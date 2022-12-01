@@ -16,7 +16,7 @@ using namespace std;
 
 void testOpEqualEmptyObjs() {
 // TEST ASSIGNMENT OPERATOR: PARAMETER OBJECT IS EMPTY
-    cout << "Parameter object is empty\n";
+    cout << "Test Assignment Operator: Parameter object is empty\n\n";
 // To print, create a variable of type string and use it
 // as an argument to call the function retrieveAllCourses().
     string result;
@@ -27,11 +27,11 @@ void testOpEqualEmptyObjs() {
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1 created:\n" << result;
+    cout << "courseList1:\n" << result;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2 created:\n" << result;
+    cout << "courseList2:\n" << result;
 
 // CALL: courseList1 = courseList2;
     courseList1 = courseList2;
@@ -48,7 +48,7 @@ void testOpEqualEmptyObjs() {
 
 void testOpEqSameLengthObjs() {
 //TEST ASSIGNMENT OPERATOR: OBJECTS HAVE SAME LENGTH
-    cout << "Objects have same length\n";
+    cout << "Test Assignment Operator: Objects have same length\n\n";
 
 // To print, create a variable of type string and use it
 // as an argument to call the function retrieveAllCourses().
@@ -100,7 +100,7 @@ void testOpEqSameLengthObjs() {
 
 void testOpEqCallingLonger() {
 //TEST ASSIGNMENT OPERATOR : CALLING OBJ IS LONGER
-    cout << "Calling object is longer\n";
+    cout << "Test Assignment Operator: Calling object is longer\n\n";
 
 // To print, create a variable of type string and use it
 // as an argument to call the function retrieveAllCourses().
@@ -154,7 +154,7 @@ void testOpEqCallingLonger() {
 
 void testOpEqCallingShorter() {
 //TEST ASSIGNMENT OPERATOR: CALLING OBJ IS SHORTER
-    cout << "Calling object is shorter\n";
+    cout << "Test Assignment Operator: Calling object is shorter\n\n";
 // To print, create a variable of type string and use it
 // as an argument to call the function retrieveAllCourses().
     string result;

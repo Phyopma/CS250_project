@@ -18,6 +18,7 @@ void testCopyConstructor() {
 /***************************************************
 * TEST COPY CONSTRUCTOR: PARAMETER OBJECT IS EMPTY
 ****************************************************/
+    cout << "Test Copy Constructor: Parameter object is empty\n\n";
 // To print, create a variable of type string and use it
 // as an argument to call the function retrieveAllCourses().
     string result;
@@ -34,15 +35,16 @@ void testCopyConstructor() {
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
-    cout << result;
+    cout << "courseList1:\n" << result;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << result;
+    cout << "courseList2:\n" << result;
 
 /*****************************************************
 * TEST COPY CONSTRUCTOR: PARAMETER OBJECT HAS COURSES
 ******************************************************/
+    cout << "Test Copy Constructor: Parameter object has courses\n\n";
 // Add 131 and 272 to courseList1
     set<int> s;
     courseList1.addCourse(131, "Python Programming 1", 4, s);
@@ -56,20 +58,21 @@ void testCopyConstructor() {
 
 // Print courseList1 (should show 131 and 272)
     courseList1.retrieveAllCourses(result);
-    cout << result;
+    cout << "courseList1:\n" << result;
 
 // Print courseList3 (should show 131 and 272)
     courseList3.retrieveAllCourses(result);
-    cout << result;
+    cout << "courseList3:\n" result;
 
 // CLEAR courseList1
     courseList1.clearList();
+    cout << "After clearing courseList1\n";
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
-    cout << result;
+    cout << "courseList1:\n" << result;
 
 // Print courseList3 (should show 131 and 272)
     courseList3.retrieveAllCourses(result);
-    cout << result;
+    cout << "courseList3:\n" << result;
 }
