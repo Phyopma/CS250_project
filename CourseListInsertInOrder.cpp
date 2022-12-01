@@ -18,7 +18,8 @@ void CourseList::insertInOrder(Node* newNode) {
     Node* previous = nullptr;
     bool isInserted = false;
     while (current != nullptr && !isInserted) {
-        if (newNode->getCourse().getCourseNumber() <= current->getCourse().getCourseNumber()) {
+        if (newNode->getCourse().getCourseNumber() <= current->getCourse()
+                .getCourseNumber()) {
             // inserting as first
             if (current == first) {
                 first = newNode;
