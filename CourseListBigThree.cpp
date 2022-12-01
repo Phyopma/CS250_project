@@ -16,27 +16,64 @@ using namespace std;
 
 
 // Copy constructor
-CourseList::CourseList(const CourseList&) {
+CourseList::CourseList(const CourseList& otherCourseList) {
 
 }
 
 // Definition overloaded assignment operator
 CourseList& CourseList::operator=(const CourseList&) {
-    return <#initializer#>;
+    return this;
 }
 
-
-void CourseList::copyCallingObjIsEmpty(const CourseList&) {
 // Definition function copyCallingObjIsEmpty
+void CourseList::copyCallingObjIsEmpty(const CourseList& otherCourseList) {
+    Node* otherCurrent = otherCourseList.first;
+    first = new Node(otherCourseList.first->getCourse(), nullptr);
+
+    Node* thisCurrent = first;
+    otherCurrent = otherCurrent->getNext();
+
+    while (otherCurrent != nullptr) {
+        thisCurrent->setNext(new Node(otherCurrent->getCourse(), nullptr));
+        thisCurrent = thisCurrent->getNext();   // next is set, not a nullptr
+        otherCurrent = otherCurrent->getNext();
+    }
+
+    last = thisCurrent;
+    count = otherCourseList.count;
 }
 
-void CourseList::copyObjectsSameLength(const CourseList&) {
 // Definition function copyObjectsSameLength
+void CourseList::copyObjectsSameLength(const CourseList& otherCourseList) {
+    Node* thisCurrent = first;
+    Node* otherCurrent = otherCourseList.first;
+
+    while (otherCurrent != nullptr) {
+        thisCurrent->setCourse(otherCurrent->getCourse());
+        thisCurrent = thisCurrent->getNext();
+        otherCurrent = otherCurrent->getNext();
+    }
 }
 
 // Definition function copyCallingObjLonger
-void CourseList::copyCallingObjLonger(const CourseList&) {
+void CourseList::copyCallingObjLonger(const CourseList& otherCourseList) {
+    Node* thisCurrent = first;
+    Node* otherCurrent = otherCourseList.first;
 
+    while (otherCurrent != nullptr) {
+        thisCurrent->setCourse(otherCurrent->getCourse());
+        thisCurrent = thisCurrent->getNext();
+        otherCurrent = otherCurrent->getNext();
+    }
+
+    Node* next;
+    while (thisCurrent != nullptr) {
+        next = thisCurrent->getNext();
+        delete thisCurrent;
+        thisCurrent = next;
+    }
+    // need to set last
+    count = otherCourseList.count;
 }
 
 // Definition function copyCallingObjShorter
