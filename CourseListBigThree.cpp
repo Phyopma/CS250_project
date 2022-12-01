@@ -22,7 +22,7 @@ CourseList::CourseList(const CourseList& otherCourseList) {
 
 // Definition overloaded assignment operator
 CourseList& CourseList::operator=(const CourseList&) {
-    return this;
+    return *this;
 }
 
 // Definition function copyCallingObjIsEmpty
@@ -66,18 +66,41 @@ void CourseList::copyCallingObjLonger(const CourseList& otherCourseList) {
         otherCurrent = otherCurrent->getNext();
     }
 
-    Node* next;
-    while (thisCurrent != nullptr) {
-        next = thisCurrent->getNext();
-        delete thisCurrent;
-        thisCurrent = next;
+    last = thisCurrent;
+
+    Node* nodeToDelete = last->getNext();
+
+    while (nodeToDelete != nullptr) {
+        Node* tmp = nodeToDelete;
+        nodeToDelete = nodeToDelete->getNext();
+        delete tmp;
+        tmp = nullptr;
     }
-    // need to set last
+
     count = otherCourseList.count;
 }
 
 // Definition function copyCallingObjShorter
-void CourseList::copyCallingObjShorter(const CourseList&) {
+void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
+    Node* thisCurrent = first;
+    Node* otherCurrent = otherCourseList.first;
+
+    while (thisCurrent != nullptr) {
+        thisCurrent->setCourse(otherCurrent->getCourse());
+        thisCurrent = thisCurrent->getNext();
+        otherCurrent = otherCurrent->getNext();
+    }
+
+    thisCurrent = last;
+
+    while (otherCurrent != nullptr) {
+        thisCurrent->setNext(new Node(otherCurrent->getCourse(), nullptr));
+        thisCurrent = thisCurrent->getNext();
+        otherCurrent = otherCurrent->getNext();
+    }
+
+    last = thisCurrent;
+    count = otherCourseList.count;
 
 }
 

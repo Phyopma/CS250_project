@@ -57,11 +57,11 @@ public:
     bool isEmpty() const;
 
 // Fucntion seachCourses
-    Node* searchCourse(int) const;
+    bool searchCourse(int) const;
 
-    Node* searchCourse(int, std::string&) const;
+    bool searchCourse(int, std::string&) const;
 
-    Node* searchCourse(int, Course&) const;
+    bool searchCourse(int, Course&) const;
 
 // Function deleteCourse
     void deleteCourse(int);

@@ -52,12 +52,12 @@ void testCourseList() {
 // Print the string.
     cout << result;
 // Call CourseList::search(int) to search for 150.
-    Node* output = courseList1.searchCourse(150);
+    courseList1.searchCourse(150);
     string tempName;
 // Create a string to store a course name, and
 // call CourseList::search(int, string) to
 // retrieve the name of the course and print it.
-    Node* output1 = courseList1.searchCourse(150, tempName);
+    courseList1.searchCourse(150, tempName);
     cout << "Course Name: " << tempName << endl;
 
 // Create an empty course by using the default constructor.
@@ -80,4 +80,8 @@ void testCourseList() {
     courseList1.retrieveAllCourses(result);
     cout << result;
 }
+
+//int main() {
+//    testCourseList();
+//}
 
