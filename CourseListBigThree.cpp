@@ -17,7 +17,14 @@ using namespace std;
 
 // Copy constructor
 CourseList::CourseList(const CourseList& otherCourseList) {
-
+    if (count == 0)
+        copyCallingObjIsEmpty(otherCourseList);
+    else if (count == otherCourseList.count)
+        copyObjectsSameLength(otherCourseList);
+    else if (count < otherCourseList.count)
+        copyCallingObjShorter(otherCourseList);
+    else if (count > otherCourseList.count)
+        copyCallingObjLonger(otherCourseList);
 }
 
 // Definition overloaded assignment operator
@@ -106,7 +113,9 @@ void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
 
 // Destructor
 CourseList::~CourseList() {
-
+    if (count != 0) {
+        clearList();
+    }
 }
 
 

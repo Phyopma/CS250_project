@@ -19,13 +19,13 @@ using namespace std;
 
 // Definition function addCourse
 void CourseList::addCourse(const Course& newCourse) {
-    CourseList::insertInOrder(new Node(newCourse, nullptr));
+    insertInOrder(new Node(newCourse, nullptr));
 }
 
 // Definition function addCourse
 void CourseList::addCourse(int courseNumber, const string& courseName, int courseUnits, const std::set<int> prereqs) {
-    Course newCourse(courseNumber, courseName, courseNumber, prereqs);
-    CourseList::insertInOrder(new Node(newCourse, nullptr));
+    Course newCourse(courseNumber, courseName, courseUnits, prereqs);
+    insertInOrder(new Node(newCourse, nullptr));
 }
 
 // Definition function getPrefix
@@ -62,7 +62,7 @@ bool CourseList::searchCourse(int courseNumber, string& courseName) const {
 bool CourseList::searchCourse(int courseNumber, Course& course) const {
     Node* result = CourseList::getCourseLocation(courseNumber);
     course = result->getCourse();
-    return result != nullptr;
+    return (result != nullptr);
 }
 
 // Definitiion deleteCourse
@@ -82,7 +82,19 @@ void CourseList::deleteCourse(int courseNumber) {
         }
     }
     if (isFound) {
-        previous->setNext(current->getNext());
+        Node* tmp = current;
+        // deleting first node
+        if (current == first) {
+            first = first->getNext();
+        } else if (current = last) {
+            last = previous;
+            last->setNext(nullptr);
+        } else {
+            previous->setNext(current->getNext());
+        }
+        delete tmp;
+        tmp = nullptr;
+
         count--;
     }
 
@@ -95,7 +107,7 @@ void CourseList::retrieveAllCourses(string& result) const {
     ostringstream output;
     while (current != nullptr) {
         Course course = current->getCourse();
-        output << getPrefix() << " " << course.getCourseNumber() <<
+        output << getPrefix() << course.getCourseNumber() <<
                " - " << course.getCourseName() << " " << course.getCourseUnits() << endl;
         current = current->getNext();
     }

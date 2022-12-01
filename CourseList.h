@@ -41,7 +41,7 @@ private:
 class CourseList {
 public:
 // Default constructor
-    CourseList() : count(0) {}
+    CourseList() : first(nullptr), last(nullptr), count(0) {}
 
 // Functions addCourse
     void addCourse(const Course&);

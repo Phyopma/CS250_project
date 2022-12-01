@@ -16,12 +16,13 @@ using namespace std;
 
 void testCourseList() {
 // Create an object of the class CourseList.
+cout << "isEmpty Test\t:" << endl;
     CourseList courseList1;
 // Call function CourseList::isEmpty and print a message.
     if (courseList1.isEmpty()) {
-        cout << "The list is empty" << endl;
+        cout << "The list is empty" << endl << endl;
     } else {
-        cout << "The list is not empty" << endl;
+        cout << "The list is not empty" << endl << endl;
     }
 // NOTE: To properly test the functions, it is
 // recommended you use the course number
@@ -47,27 +48,33 @@ void testCourseList() {
 
 // Create a string and use it as a parameter to
 // call function CourseList::retrieveAllCourses().
+    cout << "Test of adding courses to courseList using overload functions and"
+            " retrieving all courses in the list\t:" << endl;
     string result;
     courseList1.retrieveAllCourses(result);
 // Print the string.
-    cout << result;
+    cout << result << endl;
 // Call CourseList::search(int) to search for 150.
     courseList1.searchCourse(150);
     string tempName;
 // Create a string to store a course name, and
 // call CourseList::search(int, string) to
 // retrieve the name of the course and print it.
+    cout << "Searching course with courseNumber and retrieving course Name\t:" << endl;
     courseList1.searchCourse(150, tempName);
-    cout << "Course Name: " << tempName << endl;
+    cout << "Course Name: " << tempName << endl << endl;
 
 // Create an empty course by using the default constructor.
+    cout << "Searching course with courseNumber and retrieving course object\t:" << endl;
     Course emptyCourse;
 // Call function CourseList::search(int, Course) to
 // retrieve the course and print the prefix, the number
 // the name and the units.
     courseList1.searchCourse(150, emptyCourse);
     cout << courseList1.getPrefix() << emptyCourse.getCourseNumber() << " - " << emptyCourse.getCourseName()
-         << emptyCourse.getCourseUnits() << endl;
+         << " " << emptyCourse.getCourseUnits() << " units" << endl << endl;
+
+    cout << "Test of deleting courses and retrieving all courses in the list\t:" << endl;
 // Call function CourseList::deleteCourse to delete 131.
     courseList1.deleteCourse(131);
 // Call function CourseList::deleteCourse to delete 272.
@@ -81,7 +88,7 @@ void testCourseList() {
     cout << result;
 }
 
-//int main() {
-//    testCourseList();
-//}
+int main() {
+    testCourseList();
+}
 
