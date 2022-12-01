@@ -56,7 +56,7 @@ public:
 private:
     int courseNumber;
     std::string courseName;
-    int courseUnits;
+    double courseUnits;
     std::set<int> prereqs;
     static const std::string PREFIX;
 };

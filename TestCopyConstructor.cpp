@@ -9,7 +9,7 @@
     Project: CS Courses
 */
 
-#include "CourseList.h";
+#include "CourseList.h"
 #include <iostream>
 
 using namespace std;
