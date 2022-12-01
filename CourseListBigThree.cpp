@@ -17,6 +17,11 @@ using namespace std;
 
 // Copy constructor
 CourseList::CourseList(const CourseList& otherCourseList) {
+    copyCallingObjIsEmpty(otherCourseList);
+}
+
+// Definition overloaded assignment operator
+CourseList& CourseList::operator=(const CourseList& otherCourseList) {
     if (count == 0)
         copyCallingObjIsEmpty(otherCourseList);
     else if (count == otherCourseList.count)
@@ -25,10 +30,6 @@ CourseList::CourseList(const CourseList& otherCourseList) {
         copyCallingObjShorter(otherCourseList);
     else if (count > otherCourseList.count)
         copyCallingObjLonger(otherCourseList);
-}
-
-// Definition overloaded assignment operator
-CourseList& CourseList::operator=(const CourseList&) {
     return *this;
 }
 
@@ -42,7 +43,7 @@ void CourseList::copyCallingObjIsEmpty(const CourseList& otherCourseList) {
 
     while (otherCurrent != nullptr) {
         thisCurrent->setNext(new Node(otherCurrent->getCourse(), nullptr));
-        thisCurrent = thisCurrent->getNext();   // next is set, not a nullptr
+        thisCurrent = thisCurrent->getNext();   // next is set, not a
         otherCurrent = otherCurrent->getNext();
     }
 
@@ -116,6 +117,7 @@ CourseList::~CourseList() {
     if (count != 0) {
         clearList();
     }
+    cout << endl << "Destructor called" << endl; // For testing, to delete later
 }
 
 
