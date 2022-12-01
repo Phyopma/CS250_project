@@ -47,8 +47,8 @@ void testCopyConstructor() {
     cout << "Test Copy Constructor: Parameter object has courses\n\n";
 // Add 131 and 272 to courseList1
     set<int> s;
-    courseList1.addCourse(131, "Python Programming 1", 4, s);
-    courseList1.addCourse(272, "Java Programming 2", 4, s);
+    courseList1.addCourse(131, "Python 1", 4, s);
+    courseList1.addCourse(272, "Java 2", 4, s);
 
 // Create an object of the class CourseList named
 // courseList3 using the copy constructor with
@@ -62,7 +62,7 @@ void testCopyConstructor() {
 
 // Print courseList3 (should show 131 and 272)
     courseList3.retrieveAllCourses(result);
-    cout << "courseList3:\n" result;
+    cout << "courseList3:\n" << result;
 
 // CLEAR courseList1
     courseList1.clearList();

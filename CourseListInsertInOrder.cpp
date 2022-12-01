@@ -17,9 +17,10 @@ void CourseList::insertInOrder(Node* newNode) {
     Node* current = first;
     Node* previous = nullptr;
     bool isInserted = false;
+    int newCourseNumber = newNode->getCourse().getCourseNumber();
+
     while (current != nullptr && !isInserted) {
-        if (newNode->getCourse().getCourseNumber() <= current->getCourse()
-                .getCourseNumber()) {
+        if (newCourseNumber <= current->getCourse().getCourseNumber()) {
             // inserting as first
             if (current == first) {
                 first = newNode;
@@ -28,13 +29,13 @@ void CourseList::insertInOrder(Node* newNode) {
                 newNode->setNext(current);
                 previous->setNext(newNode);
             }
-            isInserted = !isInserted;
+            isInserted = true;
         } else {
             previous = current;
             current = current->getNext();
         }
-
     }
+
     if (!isInserted) {
         // handling for empty list
         if (count == 0) {
@@ -43,7 +44,7 @@ void CourseList::insertInOrder(Node* newNode) {
             last->setNext(newNode);
             last = last->getNext();
         }
-
     }
-    count++;
+
+    ++count;
 }

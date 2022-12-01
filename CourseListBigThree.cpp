@@ -17,19 +17,24 @@ using namespace std;
 
 // Copy constructor
 CourseList::CourseList(const CourseList& otherCourseList) {
-    copyCallingObjIsEmpty(otherCourseList);
+    if (otherCourseList.count == 0) {
+        count = 0;
+    } else {
+        copyCallingObjIsEmpty(otherCourseList);
+    }
 }
 
 // Definition overloaded assignment operator
 CourseList& CourseList::operator=(const CourseList& otherCourseList) {
-    if (count == 0)
+    if (count == 0) {
         copyCallingObjIsEmpty(otherCourseList);
-    else if (count == otherCourseList.count)
+    } else if (count == otherCourseList.count) {
         copyObjectsSameLength(otherCourseList);
-    else if (count < otherCourseList.count)
+    } else if (count < otherCourseList.count) {
         copyCallingObjShorter(otherCourseList);
-    else if (count > otherCourseList.count)
+    } else {
         copyCallingObjLonger(otherCourseList);
+    }
     return *this;
 }
 
@@ -58,8 +63,8 @@ void CourseList::copyObjectsSameLength(const CourseList& otherCourseList) {
 
     while (otherCurrent != nullptr) {
         thisCurrent->setCourse(otherCurrent->getCourse());
-        thisCurrent = thisCurrent->getNext();
         otherCurrent = otherCurrent->getNext();
+        thisCurrent = thisCurrent->getNext();
     }
 }
 
@@ -70,19 +75,18 @@ void CourseList::copyCallingObjLonger(const CourseList& otherCourseList) {
 
     while (otherCurrent != nullptr) {
         thisCurrent->setCourse(otherCurrent->getCourse());
-        thisCurrent = thisCurrent->getNext();
         otherCurrent = otherCurrent->getNext();
+        if (otherCurrent == nullptr)
+            last = thisCurrent;
+        thisCurrent = thisCurrent->getNext();
     }
 
-    last = thisCurrent;
+    Node* tmp = thisCurrent;
 
-    Node* nodeToDelete = last->getNext();
-
-    while (nodeToDelete != nullptr) {
-        Node* tmp = nodeToDelete;
-        nodeToDelete = nodeToDelete->getNext();
+    while (tmp != nullptr) {
+        thisCurrent = thisCurrent->getNext();
         delete tmp;
-        tmp = nullptr;
+        tmp = thisCurrent;
     }
 
     count = otherCourseList.count;
@@ -117,7 +121,8 @@ CourseList::~CourseList() {
     if (count != 0) {
         clearList();
     }
-    cout << endl << "Destructor called" << endl; // For testing, to delete later
+    cout << endl << "Destructor called"
+         << endl; // For testing, to delete later
 }
 
 
