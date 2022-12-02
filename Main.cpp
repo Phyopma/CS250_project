@@ -35,16 +35,16 @@ void courseSetterTest();
 
 // Part B
 void testCourseList();
-
-void testCopyConstructor();
-
-void testOpEqualEmptyObjs();
-
-void testOpEqSameLengthObjs();
-
-void testOpEqCallingLonger();
-
-void testOpEqCallingShorter();
+//
+//void testCopyConstructor();
+//
+//void testOpEqualEmptyObjs();
+//
+//void testOpEqSameLengthObjs();
+//
+//void testOpEqCallingLonger();
+//
+//void testOpEqCallingShorter();
 
 
 int main() {

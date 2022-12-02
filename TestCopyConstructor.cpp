@@ -76,3 +76,7 @@ void testCopyConstructor() {
     courseList3.retrieveAllCourses(result);
     cout << "courseList3:\n" << result;
 }
+
+int main() {
+    testCopyConstructor();
+}

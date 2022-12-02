@@ -19,6 +19,9 @@ using namespace std;
 CourseList::CourseList(const CourseList& otherCourseList) {
     if (otherCourseList.count == 0) {
         count = 0;
+        // Need to point to nullptr to avoid pointing random memory
+        first = nullptr;
+        last = nullptr;
     } else {
         copyCallingObjIsEmpty(otherCourseList);
     }
@@ -26,7 +29,12 @@ CourseList::CourseList(const CourseList& otherCourseList) {
 
 // Definition overloaded assignment operator
 CourseList& CourseList::operator=(const CourseList& otherCourseList) {
-    if (count == 0) {
+    if (otherCourseList.count == 0) {
+        count = 0;
+        // Need to point to nullptr to avoid pointing random memory
+        first = nullptr;
+        last = nullptr;
+    } else if (count == 0) {
         copyCallingObjIsEmpty(otherCourseList);
     } else if (count == otherCourseList.count) {
         copyObjectsSameLength(otherCourseList);
@@ -88,7 +96,7 @@ void CourseList::copyCallingObjLonger(const CourseList& otherCourseList) {
         delete tmp;
         tmp = thisCurrent;
     }
-
+    last->setNext(nullptr);
     count = otherCourseList.count;
 }
 

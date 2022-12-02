@@ -207,3 +207,10 @@ void testOpEqCallingShorter() {
     courseList2.retrieveAllCourses(result);
     cout << "courseList2:\n" << result;
 }
+
+int main() {
+    testOpEqualEmptyObjs();
+    testOpEqSameLengthObjs();
+    testOpEqCallingLonger();
+    testOpEqCallingShorter();
+}
