@@ -29,23 +29,31 @@ void testOpEqualEmptyObjs() {
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;
 
 // CALL: courseList1 = courseList2;
     courseList1 = courseList2;
-    cout << "courseList1 assigned as courseList2\n";
+    cout << "After assigning courseList1 as courseList2,\n";
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1 after assignment\n" << result;
+    cout
+            << "courseList1 after assignment:\n"
+            << result << endl;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2 after assignment\n" << result;
+    cout
+            << "courseList2 after assignment:\n"
+            << result << endl;
 }
 
 void testOpEqSameLengthObjs() {
@@ -62,42 +70,54 @@ void testOpEqSameLengthObjs() {
     courseList1.addCourse(131, "Python 1", 4, s);
     courseList1.addCourse(272, "Java 2", 4, s);
 
-// Create courseList2 with two courses: 150 and 250
+// Create courseList2 with two courses: 150 and 170
     CourseList courseList2;
     courseList2.addCourse(150, "C++ 1", 4, s);
-    courseList2.addCourse(250, "C++ 2", 4, s);
+    courseList2.addCourse(170, "Java 1", 4, s);
 
 // Print courseList1 (should show 131 and 272)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;
 
 // Print courseList2 (should show 150 and 170)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;
 
 // CALL: courseList1 = courseList2
     courseList1 = courseList2;
-    cout << "courseList1 assigned as courseList2\n";
+    cout << "After assigning courseList1 as courseList2,\n";
 
 // Print courseList1 (should show 150 and 170)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1 after assignment:\n" << result;
+    cout
+            << "courseList1 after assignment:\n"
+            << result << endl;
 
 // Print courseList2 (should show 150 and 170)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2 after assignment:\n" << endl;
+    cout
+            << "courseList2 after assignment:\n"
+            << result << endl;
 
 // CLEAR courseList2
     courseList2.clearList();
-    cout << "After clearing courseList2\n";
+    cout << "After clearing courseList2,\n";
 
 // Print courseList1 (should show 150 and 170)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;
 }
 
 void testOpEqCallingLonger() {
@@ -116,42 +136,54 @@ void testOpEqCallingLonger() {
     courseList1.addCourse(257, "Boolean Algebra", 3, s);
     courseList1.addCourse(272, "Java 2", 4, s);
 
-// Create courseList2 with two courses: 150, and 250
+// Create courseList2 with two courses: 150, and 170
     CourseList courseList2;
     courseList2.addCourse(150, "C++ 1", 4, s);
-    courseList2.addCourse(250, "C++ 2", 4, s);
+    courseList2.addCourse(170, "Java 1", 4, s);
 
 // Print courseList1 (should show 131, 170, 257, 272)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;;
 
 // Print courseList2 (should show 150 and 170)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;;
 
 // CALL: courseList1 = courseList2
     courseList1 = courseList2;
-    cout << "courseList1 assigned as courseList2\n";
+    cout << "After assigning courseList1 as courseList2,\n";
 
 // Print courseList1 (should show 150 and 170)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1 after assignment:\n" << result;
+    cout
+            << "courseList1 after assignment:\n"
+            << result << endl;;
 
 // Print courseList2 (should show 150 and 170)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2 after assignment:\n" << result;
+    cout
+            << "courseList2 after assignment:\n"
+            << result << endl;;
 
 // CLEAR courseList2
     courseList2.clearList();
-    cout << "After clearing courseList2\n";
+    cout << "After clearing courseList2,\n";
 
 // Print courseList1 (should show 150 and 170)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;;
 }
 
 void testOpEqCallingShorter() {
@@ -177,35 +209,47 @@ void testOpEqCallingShorter() {
 
 // Print courseList1 (should show 131 and 272)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;;
 
 // Print courseList2 (should show 150, 170, 250, 257)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;;
 
 // CALL: courseList1 = courseList2
     courseList1 = courseList2;
-    cout << "courseList1 assigned as courseList2\n";
+    cout << "After assigning courseList1 as courseList2,\n";
 
 // Print courseList1 (should show 150, 170, 250, 257)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;;
 
 // Print courseList2 (should show 150, 170, 250, 257)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;;
 
 // CLEAR courseList2
     courseList2.clearList();
-    cout << "After clearing courseList2\n";
+    cout << "After clearing courseList2,\n";
 
 // Print courseList1 (should show 150, 170, 250, 257)
     courseList1.retrieveAllCourses(result);
-    cout << "courseList1:\n" << result;
+    cout
+            << "courseList1:\n"
+            << result << endl;;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout << "courseList2:\n" << result;
+    cout
+            << "courseList2:\n"
+            << result << endl;;
 }
 
 int main() {
