@@ -133,8 +133,6 @@ CourseList::~CourseList() {
     if (count != 0) {
         clearList();
     }
-    cout << endl << "Destructor called"
-         << endl; // For testing, to delete later
 }
 
 

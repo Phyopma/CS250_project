@@ -3,17 +3,21 @@ project(CS250_project)
 
 set(CMAKE_CXX_STANDARD 14)
 
+#add_executable(CS250_project Main.cpp Course.cpp Course.h CourseList.cpp
+#        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp)
+
 add_executable(CS250_project Main.cpp Course.cpp Course.h CourseList.cpp
-        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp)
-
-add_executable(testingCourseList Course.cpp Course.h CourseList.cpp
         CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
-        TestFunctions.cpp)
+        TestFunctions.cpp TestCopyAssignmentOp.cpp TestCopyConstructor.cpp)
 
-add_executable(testingCopyAssignment Course.cpp Course.h CourseList.cpp
-        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
-        TestCopyAssignmentOp.cpp)
-
-add_executable(testingCopyConstuctor Course.cpp Course.h CourseList.cpp
-        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
-        TestCopyConstructor.cpp)
+#add_executable(testingCourseList Course.cpp Course.h CourseList.cpp
+#        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
+#        TestFunctions.cpp)
+#
+#add_executable(testingCopyAssignment Course.cpp Course.h CourseList.cpp
+#        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
+#        TestCopyAssignmentOp.cpp)
+#
+#add_executable(testingCopyConstuctor Course.cpp Course.h CourseList.cpp
+#        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
+#        TestCopyConstructor.cpp)

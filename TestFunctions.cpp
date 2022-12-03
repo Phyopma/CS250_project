@@ -98,8 +98,8 @@ void testCourseList() {
     cout << result;
 }
 
-int main() {
-    testCourseList();
-
-}
+//int main() {
+//    testCourseList();
+//
+//}
 

@@ -252,9 +252,9 @@ void testOpEqCallingShorter() {
             << result << endl;;
 }
 
-int main() {
-    testOpEqualEmptyObjs();
-    testOpEqSameLengthObjs();
-    testOpEqCallingLonger();
-    testOpEqCallingShorter();
-}
+//int main() {
+//    testOpEqualEmptyObjs();
+//    testOpEqSameLengthObjs();
+//    testOpEqCallingLonger();
+//    testOpEqCallingShorter();
+//}
