@@ -55,6 +55,7 @@ bool CourseList::searchCourse(int courseNumber) const {
 bool CourseList::searchCourse(int courseNumber, string& courseName) const {
     Node* result = CourseList::getCourseLocation(courseNumber);
 
+    // Retrieve course name only if it is found
     if (result != nullptr) {
         courseName = result->getCourse().getCourseName();
         return true;
@@ -68,6 +69,7 @@ bool CourseList::searchCourse(int courseNumber, string& courseName) const {
 bool CourseList::searchCourse(int courseNumber, Course& course) const {
     Node* result = CourseList::getCourseLocation(courseNumber);
 
+    // Retrieve course only if it is found
     if (result != nullptr) {
         course = result->getCourse();
         return true;
@@ -131,6 +133,7 @@ void CourseList::retrieveAllCourses(string& result) const {
 
 // Definition clearList
 void CourseList::clearList() {
+    // No need to clear an empty list
     if (count != 0) {
         Node* current = first;
         Node* tmp = first;
@@ -153,6 +156,7 @@ Node* CourseList::getCourseLocation(int courseNumber) const {
     Node* current = first;
     bool isFound = false;
 
+    // Searching for the course
     while (current != nullptr && !isFound) {
         if (current->getCourse().getCourseNumber() == courseNumber) {
             isFound = true;

@@ -19,6 +19,7 @@ void CourseList::insertInOrder(Node* newNode) {
     bool isInserted = false;
     int newCourseNumber = newNode->getCourse().getCourseNumber();
 
+    // Finding the node that has larger course numbers
     while (current != nullptr && !isInserted) {
         if (newCourseNumber <= current->getCourse().getCourseNumber()) {
             // inserting as first
@@ -41,6 +42,7 @@ void CourseList::insertInOrder(Node* newNode) {
         if (count == 0) {
             first = last = newNode;
         } else {
+            // Inserting as the last node
             last->setNext(newNode);
             last = last->getNext();
         }

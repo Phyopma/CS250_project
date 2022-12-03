@@ -18,7 +18,7 @@ void testCopyConstructor() {
 /***************************************************
 * TEST COPY CONSTRUCTOR: PARAMETER OBJECT IS EMPTY
 ****************************************************/
-    cout << "Test Copy Constructor: Parameter object is empty\n\n";
+    cout << "Test Copy Constructor: Parameter object is empty\n";
 // To print, create a variable of type string and use it
 // as an argument to call the function retrieveAllCourses().
     string result;
@@ -31,24 +31,23 @@ void testCopyConstructor() {
 // courseList2 using the copy constructor with
 // parameter courseList1.
 // CALL: CourseList courseList1(courseList2)
+    cout << "Constructing courseList2 using empty courseList 1\n";
     CourseList courseList2(courseList1);
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
-    cout
-            << "courseList1:\n"
-            << result << endl;;
+    cout << "courseList1:\n"
+         << result << endl;;
 
 // Print courseList2 (should be empty)
     courseList2.retrieveAllCourses(result);
-    cout
-            << "courseList2:\n"
-            << result << endl;;
+    cout << "courseList2:\n"
+         << result << endl;;
 
 /*****************************************************
 * TEST COPY CONSTRUCTOR: PARAMETER OBJECT HAS COURSES
 ******************************************************/
-    cout << "Test Copy Constructor: Parameter object has courses\n\n";
+    cout << "Test Copy Constructor: Parameter object has courses\n";
 // Add 131 and 272 to courseList1
     set<int> s;
     courseList1.addCourse(131, "Python 1", 4, s);
@@ -62,19 +61,17 @@ void testCopyConstructor() {
 
 // Print courseList1 (should show 131 and 272)
     courseList1.retrieveAllCourses(result);
-    cout
-            << "courseList1:\n"
-            << result << endl;;
+    cout << "courseList1:\n"
+         << result << endl;;
 
 // Print courseList3 (should show 131 and 272)
     courseList3.retrieveAllCourses(result);
-    cout
-            << "courseList3:\n"
-            << result << endl;;
+    cout << "courseList3 constructed from courseList1:\n"
+         << result << endl;;
 
 // CLEAR courseList1
+    cout << "Clearing courseList1\n";
     courseList1.clearList();
-    cout << "After clearing courseList1,\n";
 
 // Print courseList1 (should be empty)
     courseList1.retrieveAllCourses(result);
