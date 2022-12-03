@@ -35,6 +35,7 @@ public:
 
 private:
     Course course;
+
     Node* next;
 };
 
@@ -46,7 +47,7 @@ public:
 // Functions addCourse
     void addCourse(const Course&);
 
-    void addCourse(int, const std::string&, int, const std::set<int>);
+    void addCourse(int, const std::string&, int, const std::set<int>&);
 
 // Accessor functions
     std::string getPrefix() const;
@@ -99,7 +100,9 @@ private:
     void copyCallingObjShorter(const CourseList&);
 
     Node* first;
+
     Node* last;
+
     int count;
 };
 

@@ -137,7 +137,9 @@ void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
 
 // Destructor
 CourseList::~CourseList() {
-    clearList();
+    if (count != 0) {
+        clearList();
+    }
 }
 
 

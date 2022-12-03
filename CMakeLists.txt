@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(CS250_project Main.cpp Course.cpp Course.h CourseList.cpp
         CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
-        TestFunctions.cpp TestCopyAssignmentOp.cpp TestCopyConstructor.cpp)
+        TestFunctions.cpp TestCopyAssignmentOp.cpp TestCopyConstructor.cpp TestCourse.cpp)
 
 #add_executable(testingCourseList Course.cpp Course.h CourseList.cpp
 #        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp

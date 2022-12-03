@@ -24,7 +24,7 @@ void CourseList::addCourse(const Course& newCourse) {
 
 // Definition function addCourse
 void CourseList::addCourse(int courseNumber, const string& courseName,
-                           int courseUnits, const set<int> prereqs) {
+                           int courseUnits, const set<int>& prereqs) {
     Course newCourse(courseNumber, courseName, courseUnits, prereqs);
     insertInOrder(new Node(newCourse, nullptr));
 }
@@ -87,6 +87,7 @@ void CourseList::deleteCourse(int courseNumber) {
     bool isFound = false;
 
     // searching Node with course Number
+    // need previous pointer to delete node, couldn't use getCourseLocation
     while (current != nullptr && !isFound) {
         if (current->getCourse().getCourseNumber() == courseNumber) {
             isFound = true;
@@ -97,10 +98,11 @@ void CourseList::deleteCourse(int courseNumber) {
     }
 
     if (isFound) {
-        // deleting first node
         if (current == first) {
+            // deleting first node
             first = first->getNext();
         } else if (current == last) {
+            // deleting last node
             last = previous;
             last->setNext(nullptr);
         } else {

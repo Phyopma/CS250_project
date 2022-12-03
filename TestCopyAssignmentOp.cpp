@@ -229,10 +229,3 @@ void testOpEqCallingShorter() {
     cout << "courseList2:\n"
          << result << endl;;
 }
-
-//int main() {
-//    testOpEqualEmptyObjs();
-//    testOpEqSameLengthObjs();
-//    testOpEqCallingLonger();
-//    testOpEqCallingShorter();
-//}
