@@ -14,9 +14,9 @@
 
 using namespace std;
 
-
 // Copy constructor
 CourseList::CourseList(const CourseList& otherCourseList) {
+    // If parameter object is empty
     if (otherCourseList.count == 0) {
         // Need to point to nullptr to avoid pointing random memory
         first = nullptr;
@@ -32,31 +32,30 @@ CourseList& CourseList::operator=(const CourseList& otherCourseList) {
     // If the objects are the same
     if (this == &otherCourseList) {
         cerr << "Attempted assignment to itself" << endl;
+    } else if (otherCourseList.count == 0) {
+        clearList();
+    } else if (count == 0) {
+        copyCallingObjIsEmpty(otherCourseList);
+    } else if (count == otherCourseList.count) {
+        copyObjectsSameLength(otherCourseList);
+    } else if (count > otherCourseList.count) {
+        copyCallingObjLonger(otherCourseList);
     } else {
-        if (otherCourseList.count == 0) {
-            clearList();
-        } else if (count == 0) {
-            copyCallingObjIsEmpty(otherCourseList);
-        } else if (count == otherCourseList.count) {
-            copyObjectsSameLength(otherCourseList);
-        } else if (count < otherCourseList.count) {
-            copyCallingObjShorter(otherCourseList);
-        } else {
-            copyCallingObjLonger(otherCourseList);
-        }
+        copyCallingObjShorter(otherCourseList);
     }
     return *this;
 }
 
 // Definition function copyCallingObjIsEmpty
 void CourseList::copyCallingObjIsEmpty(const CourseList& otherCourseList) {
-    // Creating new node for first
+    // Create new node for first
     Node* otherCurrent = otherCourseList.first;
     first = new Node(otherCurrent->getCourse(), nullptr);
 
     Node* thisCurrent = first;
     otherCurrent = otherCurrent->getNext();
 
+    // Create new nodes for each course
     while (otherCurrent != nullptr) {
         thisCurrent->setNext(new Node(otherCurrent->getCourse(), nullptr));
         // The new node created is set to thisCurrent

@@ -47,13 +47,13 @@ bool CourseList::isEmpty() const {
 // Definition function searchCourse (courseNumber)
 // Assume list is non-empty.
 bool CourseList::searchCourse(int courseNumber) const {
-    return CourseList::getCourseLocation(courseNumber) != nullptr;
+    return getCourseLocation(courseNumber) != nullptr;
 }
 
 // Definition function searchCourse (courseNumber, courseName)
 // Assume list is non-empty.
 bool CourseList::searchCourse(int courseNumber, string& courseName) const {
-    Node* result = CourseList::getCourseLocation(courseNumber);
+    Node* result = getCourseLocation(courseNumber);
 
     // Retrieve course name only if it is found
     if (result != nullptr) {
@@ -67,7 +67,7 @@ bool CourseList::searchCourse(int courseNumber, string& courseName) const {
 // Definition function searchCourse (courseNumber, course)
 // Assume list is non-empty.
 bool CourseList::searchCourse(int courseNumber, Course& course) const {
-    Node* result = CourseList::getCourseLocation(courseNumber);
+    Node* result = getCourseLocation(courseNumber);
 
     // Retrieve course only if it is found
     if (result != nullptr) {
