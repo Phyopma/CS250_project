@@ -10,6 +10,8 @@ add_executable(CS250_project Main.cpp Course.cpp Course.h CourseList.cpp
         CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
         TestFunctions.cpp TestCopyAssignmentOp.cpp TestCopyConstructor.cpp TestCourse.cpp)
 
+add_executable(CS250_project_PartA MainForPartA.cpp Course.cpp Course.h)
+
 #add_executable(testingCourseList Course.cpp Course.h CourseList.cpp
 #        CourseList.h CourseListInsertInOrder.cpp CourseListBigThree.cpp
 #        TestFunctions.cpp)
