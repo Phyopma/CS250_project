@@ -29,6 +29,7 @@ CourseList::CourseList(const CourseList& otherCourseList) {
 
 // Definition overloaded assignment operator
 CourseList& CourseList::operator=(const CourseList& otherCourseList) {
+    // If the objects are the same
     if (this == &otherCourseList) {
         cerr << "Attempted assignment to itself" << endl;
     } else {
@@ -49,6 +50,7 @@ CourseList& CourseList::operator=(const CourseList& otherCourseList) {
 
 // Definition function copyCallingObjIsEmpty
 void CourseList::copyCallingObjIsEmpty(const CourseList& otherCourseList) {
+    // Creating new node for first
     Node* otherCurrent = otherCourseList.first;
     first = new Node(otherCurrent->getCourse(), nullptr);
 
@@ -57,7 +59,8 @@ void CourseList::copyCallingObjIsEmpty(const CourseList& otherCourseList) {
 
     while (otherCurrent != nullptr) {
         thisCurrent->setNext(new Node(otherCurrent->getCourse(), nullptr));
-        thisCurrent = thisCurrent->getNext();   // next is set, not a
+        // The new node created is set to thisCurrent
+        thisCurrent = thisCurrent->getNext();
         otherCurrent = otherCurrent->getNext();
     }
 
@@ -70,6 +73,7 @@ void CourseList::copyObjectsSameLength(const CourseList& otherCourseList) {
     Node* thisCurrent = first;
     Node* otherCurrent = otherCourseList.first;
 
+    // Copy courses to the existing nodes
     while (otherCurrent != nullptr) {
         thisCurrent->setCourse(otherCurrent->getCourse());
         otherCurrent = otherCurrent->getNext();
@@ -83,6 +87,7 @@ void CourseList::copyCallingObjLonger(const CourseList& otherCourseList) {
     Node* otherCurrent = otherCourseList.first;
     Node* thisPrev = nullptr;
 
+    // Copy courses to the existing nodes
     while (otherCurrent != nullptr) {
         thisCurrent->setCourse(otherCurrent->getCourse());
         otherCurrent = otherCurrent->getNext();
@@ -95,6 +100,7 @@ void CourseList::copyCallingObjLonger(const CourseList& otherCourseList) {
 
     thisPrev = thisCurrent;
 
+    // Delete the remaining extra nodes
     while (thisPrev != nullptr) {
         thisCurrent = thisCurrent->getNext();
         delete thisPrev;
@@ -109,6 +115,7 @@ void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
     Node* thisCurrent = first;
     Node* otherCurrent = otherCourseList.first;
 
+    // Copy courses to the existing nodes
     while (thisCurrent != nullptr) {
         thisCurrent->setCourse(otherCurrent->getCourse());
         thisCurrent = thisCurrent->getNext();
@@ -117,6 +124,7 @@ void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
 
     thisCurrent = last;
 
+    // Create new nodes for the remainding courses
     while (otherCurrent != nullptr) {
         thisCurrent->setNext(new Node(otherCurrent->getCourse(), nullptr));
         thisCurrent = thisCurrent->getNext();
@@ -130,9 +138,7 @@ void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
 
 // Destructor
 CourseList::~CourseList() {
-    if (count != 0) {
-        clearList();
-    }
+    clearList();
 }
 
 

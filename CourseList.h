@@ -20,22 +20,22 @@ class Node {
 public:
     Node() : course(), next(nullptr) {}
 
-    Node(const Course& newCourse, Node *newNext)
+    Node(const Course& newCourse, Node* newNext)
             : course(newCourse), next(newNext) {}
 
     Course getCourse() const { return course; }
 
-    Node *getNext() const { return next; }
+    Node* getNext() const { return next; }
 
     void setCourse(const Course& newCourse) { course = newCourse; }
 
-    void setNext(Node *newNext) { next = newNext; }
+    void setNext(Node* newNext) { next = newNext; }
 
     ~Node() {}
 
 private:
     Course course;
-    Node *next;
+    Node* next;
 };
 
 class CourseList {
@@ -56,7 +56,7 @@ public:
 // Boolean functions
     bool isEmpty() const;
 
-// Fucntion seachCourses
+// Function seachCourses
     bool searchCourse(int) const;
 
     bool searchCourse(int, std::string&) const;
@@ -84,10 +84,10 @@ public:
 
 private:
 // Function getCourseLocation
-    Node *getCourseLocation(int) const;
+    Node* getCourseLocation(int) const;
 
 // Function addInOrder
-    void insertInOrder(Node *);
+    void insertInOrder(Node*);
 
 // Helper functions for overloaded assignment operator
     void copyCallingObjIsEmpty(const CourseList&);
@@ -98,8 +98,8 @@ private:
 
     void copyCallingObjShorter(const CourseList&);
 
-    Node *first;
-    Node *last;
+    Node* first;
+    Node* last;
     int count;
 };
 

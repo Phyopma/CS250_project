@@ -59,7 +59,7 @@ bool CourseList::searchCourse(int courseNumber, string& courseName) const {
         courseName = result->getCourse().getCourseName();
         return true;
     }
-    
+
     return false;
 }
 
@@ -95,7 +95,6 @@ void CourseList::deleteCourse(int courseNumber) {
     }
 
     if (isFound) {
-        Node* tmp = current;
         // deleting first node
         if (current == first) {
             first = first->getNext();
@@ -106,8 +105,8 @@ void CourseList::deleteCourse(int courseNumber) {
             previous->setNext(current->getNext());
         }
 
-        delete tmp;
-        tmp = nullptr;
+        delete current;
+        current = nullptr;
 
         --count;
     }
@@ -132,19 +131,21 @@ void CourseList::retrieveAllCourses(string& result) const {
 
 // Definition clearList
 void CourseList::clearList() {
-    Node* current = first;
+    if (count != 0) {
+        Node* current = first;
+        Node* tmp = first;
 
-    // traversing the list
-    while (current != nullptr) {
-        Node* tmp = current;
-        current = current->getNext();
-        delete tmp;
-        tmp = nullptr;
+        // traversing the list
+        while (current != nullptr) {
+            current = current->getNext();
+            delete tmp;
+            tmp = current;
+        }
+
+        first = nullptr;
+        last = nullptr;
+        count = 0;
     }
-
-    first = nullptr;
-    last = nullptr;
-    count = 0;
 }
 
 // Definition function getCourseLocation
