@@ -13,22 +13,22 @@
 
 // Definition function insertInOrder
 // Assume there are no duplicates.
-void CourseList::insertInOrder(Node* newNode) {
+void CourseList::insertInOrder(Node* node) {
     Node* current = first;
     Node* previous = nullptr;
     bool isInserted = false;
-    int newCourseNumber = newNode->getCourse().getCourseNumber();
+    int courseNumber = node->getCourse().getCourseNumber();
 
     // Finding the node that has larger course numbers
     while (current != nullptr && !isInserted) {
-        if (newCourseNumber <= current->getCourse().getCourseNumber()) {
+        if (courseNumber <= current->getCourse().getCourseNumber()) {
             // inserting as first
             if (current == first) {
-                first = newNode;
+                first = node;
                 first->setNext(current);
             } else {
-                newNode->setNext(current);
-                previous->setNext(newNode);
+                node->setNext(current);
+                previous->setNext(node);
             }
             isInserted = true;
         } else {
@@ -40,10 +40,10 @@ void CourseList::insertInOrder(Node* newNode) {
     if (!isInserted) {
         // handling for empty list
         if (count == 0) {
-            first = last = newNode;
+            first = last = node;
         } else {
             // Inserting as the last node
-            last->setNext(newNode);
+            last->setNext(node);
             last = last->getNext();
         }
     }

@@ -31,7 +31,7 @@ CourseList::CourseList(const CourseList& otherCourseList) {
 CourseList& CourseList::operator=(const CourseList& otherCourseList) {
     // If the objects are the same
     if (this == &otherCourseList) {
-        cerr << "Attempted assignment to itself" << endl;
+        cerr << "Attempted assignment to itself." << endl;
     } else if (otherCourseList.count == 0) {
         clearList();
     } else if (count == 0) {
