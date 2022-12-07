@@ -30,7 +30,7 @@ void testCopyConstructor() {
 // Create an object of the class CourseList named
 // courseList2 using the copy constructor with
 // parameter courseList1.
-// CALL: CourseList courseList1(courseList2)
+// CALL: CourseList courseList2(courseList1)
     cout << "Constructing courseList2 using empty courseList 1\n";
     CourseList courseList2(courseList1);
 

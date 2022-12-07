@@ -14,6 +14,7 @@
 #include <iomanip>
 
 using namespace std;
+
 const string Course::PREFIX = "CS A";
 
 // Definition overloaded constructor

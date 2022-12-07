@@ -66,17 +66,17 @@ void testOpEqSameLengthObjs() {
     courseList1.addCourse(131, "Python 1", 4, s);
     courseList1.addCourse(272, "Java 2", 4, s);
 
-// Create courseList2 with two courses: 150 and 170
+// Create courseList2 with two courses: 150 and 250
     CourseList courseList2;
     courseList2.addCourse(150, "C++ 1", 4, s);
-    courseList2.addCourse(170, "Java 1", 4, s);
+    courseList2.addCourse(250, "C++ 2", 4, s);
 
 // Print courseList1 (should show 131 and 272)
     courseList1.retrieveAllCourses(result);
     cout << "courseList1:\n"
          << result << endl;
 
-// Print courseList2 (should show 150 and 170)
+// Print courseList2 (should show 150 and 250)
     courseList2.retrieveAllCourses(result);
     cout << "courseList2:\n"
          << result << endl;
@@ -85,12 +85,12 @@ void testOpEqSameLengthObjs() {
     cout << "Assigning courseList1 as courseList2\n";
     courseList1 = courseList2;
 
-// Print courseList1 (should show 150 and 170)
+// Print courseList1 (should show 150 and 250)
     courseList1.retrieveAllCourses(result);
     cout << "courseList1:\n"
          << result << endl;
 
-// Print courseList2 (should show 150 and 170)
+// Print courseList2 (should show 150 and 250)
     courseList2.retrieveAllCourses(result);
     cout << "courseList2:\n"
          << result << endl;
@@ -99,7 +99,7 @@ void testOpEqSameLengthObjs() {
     courseList2.clearList();
     cout << "Clearing courseList2\n";
 
-// Print courseList1 (should show 150 and 170)
+// Print courseList1 (should show 150 and 250)
     courseList1.retrieveAllCourses(result);
     cout << "courseList1:\n"
          << result << endl;

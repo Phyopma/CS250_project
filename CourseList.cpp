@@ -11,7 +11,6 @@
 
 #include "CourseList.h"
 
-#include "CourseList.h"
 #include <iostream>
 #include <sstream>
 
@@ -135,22 +134,17 @@ void CourseList::retrieveAllCourses(string& result) const {
 
 // Definition clearList
 void CourseList::clearList() {
-    // No need to clear an empty list
-    if (count != 0) {
-        Node* current = first;
-        Node* tmp = first;
+    Node* toDelete = first;
 
-        // traversing the list
-        while (current != nullptr) {
-            current = current->getNext();
-            delete tmp;
-            tmp = current;
-        }
-
-        first = nullptr;
-        last = nullptr;
-        count = 0;
+    // traversing the list
+    while (first != nullptr) {
+        first = first->getNext();
+        delete toDelete;
+        toDelete = first;
     }
+
+    last = nullptr;
+    count = 0;
 }
 
 // Definition function getCourseLocation

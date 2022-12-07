@@ -10,6 +10,7 @@
 */
 
 #include "CourseList.h"
+
 #include <iostream>
 
 using namespace std;
@@ -52,8 +53,8 @@ void CourseList::copyCallingObjIsEmpty(const CourseList& otherCourseList) {
     Node* otherCurrent = otherCourseList.first;
     first = new Node(otherCurrent->getCourse(), nullptr);
 
-    Node* thisCurrent = first;
     otherCurrent = otherCurrent->getNext();
+    Node* thisCurrent = first;
 
     // Create new nodes for each course
     while (otherCurrent != nullptr) {

@@ -13,24 +13,19 @@
 #define COURSELIST_H
 
 #include "Course.h"
+
 #include <string>
 #include <set>
 
 class Node {
 public:
     Node() : course(), next(nullptr) {}
-
     Node(const Course& newCourse, Node* newNext)
             : course(newCourse), next(newNext) {}
-
     Course getCourse() const { return course; }
-
     Node* getNext() const { return next; }
-
     void setCourse(const Course& newCourse) { course = newCourse; }
-
     void setNext(Node* newNext) { next = newNext; }
-
     ~Node() {}
 
 private:
@@ -46,22 +41,16 @@ public:
 
 // Functions addCourse
     void addCourse(const Course&);
-
     void addCourse(int, const std::string&, int, const std::set<int>&);
 
 // Accessor functions
     std::string getPrefix() const;
-
     int getNumberOfCourses() const;
 
 // Boolean functions
     bool isEmpty() const;
-
-// Function seachCourses
     bool searchCourse(int) const;
-
     bool searchCourse(int, std::string&) const;
-
     bool searchCourse(int, Course&) const;
 
 // Function deleteCourse
@@ -92,17 +81,12 @@ private:
 
 // Helper functions for overloaded assignment operator
     void copyCallingObjIsEmpty(const CourseList&);
-
     void copyObjectsSameLength(const CourseList&);
-
     void copyCallingObjLonger(const CourseList&);
-
     void copyCallingObjShorter(const CourseList&);
 
     Node* first;
-
     Node* last;
-
     int count;
 };
 
