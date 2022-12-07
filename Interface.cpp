@@ -22,6 +22,10 @@ void displayMenu() {
 
 void option1(CourseList&);
 
+void option3(CourseList&);
+
+void getBackToMenu(bool&);
+
 void processChoice(CourseList& courseList) {
     // Write your code in here...
     bool isTerminated = false;
@@ -40,27 +44,41 @@ void processChoice(CourseList& courseList) {
                 option1(courseList);
                 break;
             }
-            case 2:
-                cout << "Option 2" << endl;
+            case 2: {
+                cout << "Option 2: Add course" << endl;
+                cout << "Please contact the Curriculum Committee to start "
+                        "the process of adding a course.contact the "
+                        "Curriculum Committee to start the process of "
+                        "adding a course." << endl;
+                getBackToMenu(isTerminated);
                 break;
+
+            }
+
             case 3:
-                cout << "Option 3" << endl;
+                option3(courseList);
                 break;
-            case 4:
-                cout << "Option 4" << endl;
+            case 4: {
+                cout << "Option 4: Display all courses" << endl;
+                string output;
+                courseList.retrieveAllCourses(output);
+                cout << output << endl;
+                getBackToMenu(isTerminated);
                 break;
+            }
             case 5:
                 cout << "Option 5" << endl;
                 break;
             case 6:
                 isTerminated = true;
-                cout << "Option 6" << endl;
+                cout << "Option 6: Exit" << endl;
                 break;
             default:
-                cout << "Option 7" << endl;
+                cout << "Invalid Selection" << endl;
                 break;
         }
     }
+    cout << "Good bye msg" << endl;
 }
 
 void option1(CourseList& courseList) {
@@ -101,5 +119,61 @@ void option1(CourseList& courseList) {
 
 }
 
+void getBackToMenu(bool& isTerminated) {
+    string searchOption;
+    do {
+        cout << "To go back, enter \"b\"" << endl;
+        cout << "To exit, enter \"e\"" << endl;
+
+        cin >> searchOption;
+        if (searchOption == "e") {
+            isTerminated = true;
+        }
+    } while (searchOption != "b" && searchOption != "e");
+}
+
+void option3(CourseList& courseList) {
+    bool back = false;
+    cout << "Option 3: Delete course" << endl;
+    while (!back) {
+        cout << "Enter the course number to be deleted (150, 200, etc ): ";
+        int courseNumber;
+        cin >> courseNumber;
+        if (cin.fail()) {
+            cout << "Err Message" << endl;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+        if (!courseList.searchCourse(courseNumber)) {
+            cout << "The course number you searched is not in "
+                    "the list" << endl;
+        } else {
+            string confirmation;
+            do {
+                cout << "Are you sure to delete this course" << courseList
+                        .getPrefix() << courseNumber << endl;
+                cout << "\"Y\" to continue. \"N\" to abort." << endl;
+                cin >> confirmation;
+                if (confirmation == "Y") {
+                    courseList.deleteCourse(courseNumber);
+                    cout << "Successfully deleted" << endl;
+                }
+            } while (confirmation != "Y" && confirmation != "N");
+        }
+
+        string searchOption;
+        do {
+            cout << "To go back, enter \"b\"" << endl;
+            cout << "To delete another course or retry again, enter \"r\""
+                 << endl;
+            cin >> searchOption;
+            if (searchOption == "b") {
+                back = true;
+            }
+        } while (searchOption != "b" && searchOption != "r");
+
+    }
+}
 
 

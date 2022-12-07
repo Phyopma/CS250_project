@@ -13,8 +13,11 @@ int main() {
     ********************************************************/
     CourseList courseList;
     createCourseList(courseList);
-//    displayMenu();
-    processChoice(courseList);
+    if (courseList.isEmpty()) {
+        cout << "Error Msg for empty database" << endl;
+    } else {
+        processChoice(courseList);
+    }
 
     cout << "\n";
     return 0;
