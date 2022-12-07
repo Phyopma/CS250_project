@@ -14,7 +14,7 @@ int main() {
     CourseList courseList;
     createCourseList(courseList);
     if (courseList.isEmpty()) {
-        cout << "Error Msg for empty database" << endl;
+        cerr << "The database is empty." << endl;
     } else {
         processChoice(courseList);
     }
