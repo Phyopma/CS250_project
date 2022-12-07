@@ -1,46 +1,22 @@
-/*
-    Coffee Addicts
-
-    Aung, Phyo Pyae Moe
-    Hlaing, Yu Yu
-
-    Fall 2022
-    CS A250 - C++ 2
-    Project: CS Courses
-*/
-
 #include "CourseList.h"
+#include "TestingCases.h"
+#include "Interface.h"
+
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-// Part B
-void testCourseList();
-
-void testCopyConstructor();
-
-void testOpEqualEmptyObjs();
-
-void testOpEqSameLengthObjs();
-
-void testOpEqCallingLonger();
-
-void testOpEqCallingShorter();
-
 int main() {
-    // Part B
-    testCourseList();
-    testCopyConstructor();
-    testOpEqualEmptyObjs();
-    testOpEqSameLengthObjs();
-    testOpEqCallingLonger();
-    testOpEqCallingShorter();
+    /********************************************************
+    *	TESTING database
+    ********************************************************/
+    CourseList courseList;
+    createCourseList(courseList);
+    displayMenu();
+    processChoice(courseList);
 
     cout << "\n";
     return 0;
 
 }
-
-
-
-
