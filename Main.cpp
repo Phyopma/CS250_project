@@ -13,7 +13,7 @@ int main() {
     ********************************************************/
     CourseList courseList;
     createCourseList(courseList);
-    displayMenu();
+//    displayMenu();
     processChoice(courseList);
 
     cout << "\n";
