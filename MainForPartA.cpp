@@ -67,7 +67,7 @@ int main() {
 // You can use as a fourth parameter the call: set<int>{150, 170}
     Course cpp = {250, "C++ 2", 4, set<int>{150, 170}};
     // Print the "cpp" course.
-    cout << "\ncpp: " << Course::getPrefix << cpp.getCourseNumber();
+    cout << "\ncpp: " << &Course::getPrefix() << cpp.getCourseNumber();
     cout << " - " << cpp.getCourseName();
     cout << " (" << cpp.getCourseUnits() << " units)";
     cout << " Prerequisites: ";

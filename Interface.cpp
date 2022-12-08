@@ -21,17 +21,17 @@ void displayMenu() {
          << "    6: To exit\n";
 }
 
-void searchRequest(CourseList&);
+void searchRequest(const CourseList&);
 void deleteRequest(CourseList&);
 void getBackToMenu(bool&);
-void calculateGPA(const CourseList& courseList);
+void calculateGPA(const CourseList&);
+void invalidInputHandler(const CourseList&);
+void displayCourses(const CourseList&);
 
 void processChoice(CourseList& courseList) {
-    // Write your code in here...
     bool isTerminated = false;
     while (!isTerminated) {
-        cout << "Choose options 1-6: ";
-//        displayMenu();
+        cout << "\nChoose options 1-6: "; // TODO: Please change
         int option;
         cin >> option;
 
@@ -39,154 +39,152 @@ void processChoice(CourseList& courseList) {
             cout << "Please type a number." << endl;
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
+        } else {
+            switch (option) {
+                case 1: {
+                    cout << "\nOption 1: Search Course" << endl;
+                    searchRequest(courseList);
+                    break;
+                }
 
-        switch (option) {
-            case 1: {
-                cout << "Option 1: Search Course" << endl;
-                searchRequest(courseList);
-                break;
-            }
+                case 2: {
+                    cout << "\nOption 2: Add course" << endl;
+                    cout << "\nPlease contact the Curriculum Committee to "
+                            "start the process of adding a course."
+                         << endl;
+                    getBackToMenu(isTerminated);
+                    break;
+                }
 
-            case 2: {
-                cout << "Option 2: Add course" << endl;
-                cout << "Please contact the Curriculum Committee to "
-                        "start the process of adding a course." << endl;
-                getBackToMenu(isTerminated);
-                break;
+                case 3: {
+                    cout << "\nOption 3: Delete course" << endl;
+                    deleteRequest(courseList);
+                    break;
+                }
 
-            }
+                case 4: {
+                    cout << "\nOption 4: Display all courses" << endl;
+                    displayCourses(courseList);
+                    getBackToMenu(isTerminated);
+                    break;
+                }
 
-            case 3: {
-                deleteRequest(courseList);
-                break;
-            }
+                case 5: {
+                    cout << "\nOption 5: Calculate GPA" << endl;
+                    calculateGPA(courseList);
+                    break;
+                }
 
-            case 4: {
-                cout << "Option 4: Display all courses" << endl;
-                string output;
-                courseList.retrieveAllCourses(output);
-                cout << output << endl;
-                getBackToMenu(isTerminated);
-                break;
-            }
+                case 6: {
+                    isTerminated = true;
+                    cout << "\nOption 6: Exit" << endl;
+                    break;
+                }
 
-            case 5: {
-                cout << "Option 5: Calculate GPA" << endl;
-                calculateGPA(courseList);
-                break;
-            }
-
-            case 6: {
-                isTerminated = true;
-                cout << "Option 6: Exit" << endl;
-                break;
-            }
-
-            default: {
-                cout << "Invalid Selection" << endl;
-                break;
+                default: {
+                    cout << "\nInvalid Selection" << endl;
+                    displayMenu();
+                    break;
+                }
             }
         }
     }
 
-    cout << "Thank you. Good bye." << endl;
+    cout << "Thank you. Good bye." << endl; // TODO: Please Change
 }
 
-void searchRequest(CourseList& courseList) {
+void searchRequest(const CourseList& courseList) {
     bool back = false;
 
     while (!back) {
-        cout << "Enter the course number (150, 200, etc ): ";
+        cout << "\nEnter the course number (150, 200, etc ): ";
         int courseNumber;
         cin >> courseNumber;
 
         if (cin.fail()) {
-            cout << "Invalid Input." << endl;
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        Course tmpCourse;
-        if (!courseList.searchCourse(courseNumber, tmpCourse)) {
-            cout << "The course number you searched is not in the list"
-                 << endl;
+            invalidInputHandler(courseList);
         } else {
-            cout << "\t" << courseList.getPrefix() << tmpCourse
-                    .getCourseNumber()
-                 << " - " << tmpCourse.getCourseName()
-                 << " (" << tmpCourse.getCourseUnits() << " units)\n\n";
-        }
-
-        string searchOption;
-        do {
-            cout << "To go back, enter \"b\"" << endl;
-            cout << "To retry again, enter \"r\"" << endl;
-
-            cin >> searchOption;
-            if (searchOption == "b") {
-                back = true;
+            Course tmpCourse;
+            if (!courseList.searchCourse(courseNumber, tmpCourse)) {
+                cout
+                        << "\nThe course number you searched is not in "
+                           "the list!!"
+                        << endl;
+            } else {
+                cout << "\t" << courseList.getPrefix() << tmpCourse
+                        .getCourseNumber()
+                     << " - " << tmpCourse.getCourseName()
+                     << " (" << tmpCourse.getCourseUnits() << " units)\n";
             }
-        } while (searchOption != "b" && searchOption != "r");
 
+            string searchOption;
+            do {
+                cout << endl;
+                cout << R"(Enter "b" to go back or "r" to retry again)"
+                     << "\t:";
+
+                cin >> searchOption;
+                if (searchOption == "b") {
+                    back = true;
+                }
+            } while (searchOption != "b" && searchOption != "r");
+        }
     }
-
 }
 
 void deleteRequest(CourseList& courseList) {
     bool back = false;
-    cout << "Option 3: Delete course" << endl;
 
     while (!back) {
-        cout << "Enter the course number to be deleted (150, 200, etc ): ";
+        cout << "\nEnter the course number to be deleted (150, 200, etc )"
+                ": ";
         int courseNumber;
         cin >> courseNumber;
 
         if (cin.fail()) {
-            cout << "Invalid Input." << endl;
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        if (!courseList.searchCourse(courseNumber)) {
-            cout << "The course number you searched is not in the list"
-                 << endl;
+            invalidInputHandler(courseList);
         } else {
-            string confirmation;
-            do {
-                cout << "Are you sure to delete this course" << courseList
-                        .getPrefix() << courseNumber << endl;
-                cout << "\"Y\" to continue. \"N\" to abort." << endl;
-                cin >> confirmation;
-                if (confirmation == "Y") {
-                    courseList.deleteCourse(courseNumber);
-                    cout << "Successfully deleted" << endl;
-                }
-            } while (confirmation != "Y" && confirmation != "N");
-        }
 
-        string searchOption;
-        do {
-            cout << "To go back, enter \"b\"" << endl;
-            cout << "To delete another course or retry again, enter \"r\""
-                 << endl;
-            cin >> searchOption;
-            if (searchOption == "b") {
-                back = true;
+            if (!courseList.searchCourse(courseNumber)) {
+                cout << "\nThe course number you searched is not in the "
+                        "list!!"
+                     << endl;
+            } else {
+                string confirmation;
+                do {
+                    cout << "\nAre you sure to delete this course"
+                         << courseList
+                                 .getPrefix() << courseNumber << endl;
+                    cout << R"(Enter "Y" to continue or "N" to abort.)"
+                         << "\t:";
+                    cin >> confirmation;
+                    if (confirmation == "Y") {
+                        courseList.deleteCourse(courseNumber);
+                        cout << "Successfully deleted" << endl;
+                    }
+                } while (confirmation != "Y" && confirmation != "N");
             }
-        } while (searchOption != "b" && searchOption != "r");
 
+            string searchOption;
+            do {
+                cout << endl;
+                cout << R"(Enter "b" to go back or "d" to delete again)";
+                cout << "\t:";
+                cin >> searchOption;
+                if (searchOption == "b") {
+                    back = true;
+                }
+            } while (searchOption != "b" && searchOption != "d");
+        }
     }
 }
 
 void getBackToMenu(bool& isTerminated) {
     string searchOption;
     do {
-        cout << "To go back, enter \"b\"" << endl;
-        cout << "To exit, enter \"e\"" << endl;
+        cout << endl;
+        cout << R"(Enter "b" to go back or "e" to exit)";
+        cout << "\t:";
 
         cin >> searchOption;
         if (searchOption == "e") {
@@ -198,57 +196,75 @@ void getBackToMenu(bool& isTerminated) {
 void calculateGPA(const CourseList& courseList) {
     bool done = false;
     int totalUnits = 0;
-    double totalGrade;
-    set<int> courses;
+    double totalGrade = 0;
+    set<int> addedCourses;
 
     while (!done) {
         int courseNumber;
-        cout << "Enter course number: ";
+        cout << "\nEnter course number: ";
         cin >> courseNumber;
 
         if (cin.fail()) {
-            cout << "Invalid Input." << endl;
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-        Course course;
-        const string tmp = "ABCDEF";
-        const map<char, double> m = {
-                {'A', 4.0},
-                {'B', 3.0},
-                {'C', 2.0},
-
-        };
-        if (courses.find(courseNumber) != courses.end()) {
-            cout << "Already added" << endl;
-            continue;
-        } else if (!courseList.searchCourse(courseNumber, course)) {
-            cout << "The course number you searched is not in the list"
-                 << endl;
+            invalidInputHandler(courseList);
         } else {
-            string grade;
-            do {
-                cout << "Enter letter grade (A B C): ";
-                cin >> grade;
-            } while (tmp.find(grade[0]) == string::npos);
+            Course course;
+            const string gradeLetters = "A-B-C-D-E-F";
+            const map<char, double> gradeLetterToPoint = {
+                    {'A', 4.0},
+                    {'B', 3.0},
+                    {'C', 2.0},
+            };
+            if (addedCourses.find(courseNumber) != addedCourses.end()) {
+                cout << "\nAlready added!!" << endl;
+                continue;
+            } else if (!courseList.searchCourse(courseNumber, course)) {
+                cout
+                        << "\nThe course number you searched is not in "
+                           "the list!!"
+                        << endl;
+            } else {
+                string grade;
+                do {
+                    cout << "Enter letter grade (A B C)\t: ";
+                    cin >> grade;
+                } while (gradeLetters.find(grade[0]) == string::npos);
 
-            courses.insert(course.getCourseNumber());
-            totalUnits += course.getCourseUnits();
-            totalGrade += course.getCourseUnits() * m.at(grade[0]);
-            string input;
-            do {
-                cout << "To add more course, enter \"a\"" << endl;
-                cout << "To calculate, enter \"c\""
-                     << endl;
-                cin >> input;
-                if (input == "c") {
-                    done = true;
-                    cout << "average gpa : " << totalGrade / totalUnits <<
-                         endl;
-                }
-            } while (input != "a" && input != "c");
-
+                addedCourses.insert(course.getCourseNumber());
+                totalUnits += course.getCourseUnits();
+                totalGrade += course.getCourseUnits() *
+                              gradeLetterToPoint.at(grade[0]);
+                string input;
+                do {
+                    cout << endl;
+                    cout << R"(Enter "a" to add more or "c" to calculate)";
+                    cout << "\t: ";
+                    cin >> input;
+                    if (input == "c") {
+                        done = true;
+                        cout << "Taken courses\t: " << endl;
+                        for (int i: addedCourses) {
+                            string display;
+                            courseList.searchCourse(i, display);
+                            cout << "\t" << display << endl;
+                        }
+                        cout << "\nAverage gpa : " << totalGrade /
+                                                      totalUnits << endl;
+                    }
+                } while (input != "a" && input != "c");
+            }
         }
     }
+}
+
+void invalidInputHandler(const CourseList& courseList) {
+    cout << "\nInvalid Input." << endl;
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    displayCourses(courseList);
+}
+
+void displayCourses(const CourseList& courseList) {
+    string output;
+    courseList.retrieveAllCourses(output);
+    cout << output << endl;
 }

@@ -26,7 +26,7 @@ public:
     Node* getNext() const { return next; }
     void setCourse(const Course& newCourse) { course = newCourse; }
     void setNext(Node* newNext) { next = newNext; }
-    ~Node() {}
+    ~Node() = default;
 
 private:
     Course course;
