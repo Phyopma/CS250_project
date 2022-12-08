@@ -64,7 +64,7 @@ void getData(int& newNumber, string& newName,
             {},            //140 C#.NET Programming
             {170},        //150 C++ Programming 1
             {},            //170 Java Programming 1
-            {150, 250},    //Data Structures
+            {150, 250},    //200 Data Structures
             //
             {150, 170},    //216 Computer Architecture
             {150, 170},    //220 Software Engineering

@@ -13,6 +13,7 @@ int main() {
     ********************************************************/
     CourseList courseList;
     createCourseList(courseList);
+    displayMenu();
     if (courseList.isEmpty()) {
         cerr << "The database is empty." << endl;
     } else {
