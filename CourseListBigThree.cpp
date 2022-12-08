@@ -133,7 +133,6 @@ void CourseList::copyCallingObjShorter(const CourseList& otherCourseList) {
 
     last = thisCurrent;
     count = otherCourseList.count;
-
 }
 
 // Destructor

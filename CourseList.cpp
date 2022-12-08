@@ -113,7 +113,6 @@ void CourseList::deleteCourse(int courseNumber) {
 
         --count;
     }
-
 }
 
 // Definition retrieveAllCourses
