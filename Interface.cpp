@@ -33,7 +33,7 @@ void displayCourses(const CourseList&);
 void processChoice(CourseList& courseList) {
     bool isTerminated = false;
     while (!isTerminated) {
-        cout << "\nChoose options 1-6: "; // TODO: Please change
+        cout << "\nChoose one of the operations from the Main Menu: ";
         int option;
         cin >> option;
 
@@ -109,7 +109,7 @@ void searchRequest(const CourseList& courseList) {
             Course tmpCourse;
             if (!courseList.searchCourse(courseNumber, tmpCourse)) {
                 cout
-                        << "\nThe course number you searched is not in "
+                        << "The course number you searched is not in "
                            "the list!!"
                         << endl;
             } else {
@@ -154,10 +154,10 @@ void deleteRequest(CourseList& courseList) {
             } else {
                 string confirmation;
                 do {
-                    cout << "\nAre you sure to delete this course"
-                         << courseList
-                                 .getPrefix() << courseNumber << endl;
-                    cout << R"(Enter "Y" to continue or "N" to abort.)"
+                    cout << "\nAre you sure to delete this course ("
+                         << courseList.getPrefix() << courseNumber
+                         << ")?\n";
+                    cout << R"(Enter "Y" to continue or "N" to abort)"
                          << "\t:";
                     cin >> confirmation;
                     if (confirmation == "Y") {
@@ -213,12 +213,13 @@ void calculateGPA(const CourseList& courseList) {
             invalidInputHandler(courseList);
         } else {
             Course course;
-            const string gradeLetters = "A-B-C-F";
+            const string gradeLetters = "A-B-C-D-F";
             const map<char, double> gradeLetterToPoint = {
                     {'A', 4.0},
                     {'B', 3.0},
                     {'C', 2.0},
-                    {'F', 1.0},
+                    {'D', 1.0},
+                    {'F', 0.0}
             };
             if (addedCourses.find(courseNumber) != addedCourses.end()) {
                 cout << "\nAlready added!!" << endl;
@@ -231,7 +232,7 @@ void calculateGPA(const CourseList& courseList) {
             } else {
                 string grade;
                 do {
-                    cout << "Enter letter grade (A B C F(Fail) )\t: ";
+                    cout << "Enter letter grade (A B C D F(Fail) )\t: ";
                     cin >> grade;
                 } while (gradeLetters.find(grade[0]) == string::npos);
 
@@ -279,5 +280,5 @@ void invalidInputHandler(const CourseList& courseList) {
 void displayCourses(const CourseList& courseList) {
     string output;
     courseList.retrieveAllCourses(output);
-    cout << output << endl;
+    cout << "\n" << output << endl;
 }
