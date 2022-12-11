@@ -1,7 +1,9 @@
 #include "Interface.h"
 
 #include <iostream>
-#include "map"
+#include <map>
+#include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -198,7 +200,10 @@ void calculateGPA(const CourseList& courseList) {
     int totalUnits = 0;
     double totalGrade = 0;
     set<int> addedCourses;
-
+    ostringstream display;
+    display << setw(20) << left << "Course Number" << setw(20) <<
+            "Course Name";
+    display << setw(10) << right << "Units" << setw(10) << "Grade" << endl;
     while (!done) {
         int courseNumber;
         cout << "\nEnter course number: ";
@@ -208,11 +213,12 @@ void calculateGPA(const CourseList& courseList) {
             invalidInputHandler(courseList);
         } else {
             Course course;
-            const string gradeLetters = "A-B-C-D-E-F";
+            const string gradeLetters = "A-B-C-F";
             const map<char, double> gradeLetterToPoint = {
                     {'A', 4.0},
                     {'B', 3.0},
                     {'C', 2.0},
+                    {'F', 1.0},
             };
             if (addedCourses.find(courseNumber) != addedCourses.end()) {
                 cout << "\nAlready added!!" << endl;
@@ -225,11 +231,21 @@ void calculateGPA(const CourseList& courseList) {
             } else {
                 string grade;
                 do {
-                    cout << "Enter letter grade (A B C)\t: ";
+                    cout << "Enter letter grade (A B C F(Fail) )\t: ";
                     cin >> grade;
                 } while (gradeLetters.find(grade[0]) == string::npos);
 
-                addedCourses.insert(course.getCourseNumber());
+                if (grade[0] != 'F') {
+                    addedCourses.insert(course.getCourseNumber());
+                } // fail must retake again
+
+                display << setw(20) << left << course.getCourseNumber() <<
+                        setw(20) << course.getCourseName();
+                display << setw(10) << right << course.getCourseUnits()
+                        << setw(10) << grade[0] << "\t"
+                        << (grade[0] == 'F' ?
+                            "Fail *" : "") << endl;
+
                 totalUnits += course.getCourseUnits();
                 totalGrade += course.getCourseUnits() *
                               gradeLetterToPoint.at(grade[0]);
@@ -242,11 +258,8 @@ void calculateGPA(const CourseList& courseList) {
                     if (input == "c") {
                         done = true;
                         cout << "Taken courses\t: " << endl;
-                        for (int i: addedCourses) {
-                            string display;
-                            courseList.searchCourse(i, display);
-                            cout << "\t" << display << endl;
-                        }
+                        cout << display.str() << endl;
+                        cout << "Total units taken : " << totalUnits;
                         cout << "\nAverage gpa : " << totalGrade /
                                                       totalUnits << endl;
                     }
