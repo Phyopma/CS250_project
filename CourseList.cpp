@@ -18,14 +18,14 @@ using namespace std;
 
 // Definition function addCourse
 void CourseList::addCourse(const Course& newCourse) {
-    insertInOrder(new Node(newCourse, nullptr));
+    insertInOrder( new Node( newCourse, nullptr ));
 }
 
 // Definition function addCourse
 void CourseList::addCourse(int courseNumber, const string& courseName,
                            int courseUnits, const set<int>& prereqs) {
-    Course newCourse(courseNumber, courseName, courseUnits, prereqs);
-    insertInOrder(new Node(newCourse, nullptr));
+    Course newCourse( courseNumber, courseName, courseUnits, prereqs );
+    insertInOrder( new Node( newCourse, nullptr ));
 }
 
 // Definition function getPrefix
@@ -46,13 +46,13 @@ bool CourseList::isEmpty() const {
 // Definition function searchCourse (courseNumber)
 // Assume list is non-empty.
 bool CourseList::searchCourse(int courseNumber) const {
-    return getCourseLocation(courseNumber) != nullptr;
+    return getCourseLocation( courseNumber ) != nullptr;
 }
 
 // Definition function searchCourse (courseNumber, courseName)
 // Assume list is non-empty.
 bool CourseList::searchCourse(int courseNumber, string& courseName) const {
-    Node* result = getCourseLocation(courseNumber);
+    Node* result = getCourseLocation( courseNumber );
 
     // Retrieve course name only if it is found
     if (result != nullptr) {
@@ -66,7 +66,7 @@ bool CourseList::searchCourse(int courseNumber, string& courseName) const {
 // Definition function searchCourse (courseNumber, course)
 // Assume list is non-empty.
 bool CourseList::searchCourse(int courseNumber, Course& course) const {
-    Node* result = getCourseLocation(courseNumber);
+    Node* result = getCourseLocation( courseNumber );
 
     // Retrieve course only if it is found
     if (result != nullptr) {
@@ -103,9 +103,9 @@ void CourseList::deleteCourse(int courseNumber) {
         } else if (current == last) {
             // deleting last node
             last = previous;
-            last->setNext(nullptr);
+            last->setNext( nullptr );
         } else {
-            previous->setNext(current->getNext());
+            previous->setNext( current->getNext());
         }
 
         delete current;
@@ -118,17 +118,16 @@ void CourseList::deleteCourse(int courseNumber) {
 // Definition retrieveAllCourses
 // Assume list is non-empty.
 void CourseList::retrieveAllCourses(string& result) const {
+    result = "";
     Node* current = first;
-    ostringstream output;
 
     while (current != nullptr) {
         Course course = current->getCourse();
-        output << getPrefix() << course.getCourseNumber() <<
-               " - " << course.getCourseName() << endl;
+        result.append( getPrefix());
+        result.append( to_string( course.getCourseNumber()));
+        result.append( " - " + course.getCourseName() + "\n" );
         current = current->getNext();
     }
-
-    result = output.str();
 }
 
 // Definition clearList
