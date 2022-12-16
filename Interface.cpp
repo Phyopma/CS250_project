@@ -91,9 +91,16 @@ void processChoice(CourseList& courseList) {
                 }
             }
         }
+        if (!isTerminated) {
+            cout << endl;
+            displayMenu();
+        }
     }
 
-    cout << "Thank you. Goodbye." << endl; // TODO: Please Change
+    cout << "Thank you. Goodbye." << endl;
+    cout << "\nEnter any key to exit." << endl;
+    string s;
+    cin >> s;
 }
 
 void searchRequest(const CourseList& courseList) {
@@ -117,7 +124,17 @@ void searchRequest(const CourseList& courseList) {
                 cout << "\t" << courseList.getPrefix() << tmpCourse
                         .getCourseNumber()
                      << " - " << tmpCourse.getCourseName()
-                     << " (" << tmpCourse.getCourseUnits() << " units)\n";
+                     << " (" << tmpCourse.getCourseUnits() << " units)\n"
+                     << "\tPrerequisites :";
+                const set<int>& prereqs = tmpCourse.getCoursePrereqs();
+                if (prereqs.empty()) {
+                    cout << " None\n";
+                } else {
+                    for (int i: prereqs) {
+                        cout << " " << i;
+                    }
+                    cout << endl;
+                }
             }
 
             string searchOption;
@@ -149,7 +166,7 @@ void deleteRequest(CourseList& courseList) {
         } else {
 
             if (!courseList.searchCourse(courseNumber)) {
-                cout << "\nThe course number you searched is not in the "
+                cout << "The course number you searched is not in the "
                         "list!!"
                      << endl;
             } else {
@@ -208,7 +225,7 @@ void calculateGPA(const CourseList& courseList) {
             << endl;
     while (!done) {
         int courseNumber;
-        cout << "\nEnter course number : ";
+        cout << "\nEnter the course number : ";
         cin >> courseNumber;
 
         if (cin.fail()) {
@@ -228,7 +245,7 @@ void calculateGPA(const CourseList& courseList) {
                 continue;
             } else if (!courseList.searchCourse(courseNumber, course)) {
                 cout
-                        << "\nThe course number you searched is not in "
+                        << "The course number you searched is not in "
                            "the list!!"
                         << endl;
             } else {
@@ -261,9 +278,10 @@ void calculateGPA(const CourseList& courseList) {
                     cin >> input;
                     if (input == "c") {
                         done = true;
-                        cout << "Taken courses : " << endl;
+                        cout << "\nTaken courses : " << endl;
                         cout << display.str() << endl;
                         cout << "Total units taken : " << totalUnits;
+                        cout << fixed << setprecision(2);
                         cout << "\nAverage gpa : " << totalGrade /
                                                       totalUnits << endl;
                     }
@@ -284,5 +302,5 @@ void invalidInputHandler(const CourseList& courseList) {
 void displayCourses(const CourseList& courseList) {
     string output;
     courseList.retrieveAllCourses(output);
-    cout << "\n" << output << endl;
+    cout << "\n" << output;
 }
